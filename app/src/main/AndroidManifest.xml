@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : AndroidManifest.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/AndroidManifest.xml
+  ~ currentModifyTime : 2019-10-29 21:10:48
+  ~ lastModifyTime : 2019-10-28 23:10:47
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dluobida.junjiefinance">
 
@@ -10,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

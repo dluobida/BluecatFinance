@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : activity_main.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/layout/activity_main.xml
+  ~ currentModifyTime : 2019-10-29 21:10:48
+  ~ lastModifyTime : 2019-10-28 23:10:47
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

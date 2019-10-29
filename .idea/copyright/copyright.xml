@@ -1,0 +1,6 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="notice" value="project ：&amp;#36;project.name&#10;author : dluobida&#10;class : &amp;#36;file.fileName&#10;package : &amp;#36;file.qualifiedClassName&#10;currentModifyTime : &amp;#36;today.format(&quot;yyyy-MM-dd HH:mm:ss&quot;)&#10;lastModifyTime : &amp;#36;file.lastModified.format(&quot;yyyy-MM-dd HH:mm:ss&quot;)&#10;Copyright (c) &amp;#36;today.year dluobida ." />
+    <option name="myName" value="copyright" />
+  </copyright>
+</component>

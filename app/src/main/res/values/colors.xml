@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : colors.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/values/colors.xml
+  ~ currentModifyTime : 2019-10-29 21:10:48
+  ~ lastModifyTime : 2019-10-28 23:10:24
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>

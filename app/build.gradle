@@ -1,3 +1,13 @@
+/*
+ * project ：JunjieFinance
+ * author : dluobida
+ * class : build.gradle
+ * package : build
+ * currentModifyTime : 2019-10-29 21:10:48
+ * lastModifyTime : 2019-10-28 23:10:24
+ * Copyright (c) 2019 dluobida .
+ */
+
 apply plugin: 'com.android.application'
 
 android {

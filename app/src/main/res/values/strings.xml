@@ -1,3 +1,13 @@
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : strings.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/values/strings.xml
+  ~ currentModifyTime : 2019-10-29 21:10:48
+  ~ lastModifyTime : 2019-10-28 23:10:23
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
 <resources>
     <string name="app_name">JunjieFinance</string>
 </resources>

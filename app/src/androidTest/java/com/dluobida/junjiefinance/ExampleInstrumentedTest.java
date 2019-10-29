@@ -1,3 +1,13 @@
+/*
+ * project ：JunjieFinance
+ * author : dluobida
+ * class : ExampleInstrumentedTest.java
+ * package : com.dluobida.junjiefinance.ExampleInstrumentedTest
+ * currentModifyTime : 2019-10-29 21:10:48
+ * lastModifyTime : 2019-10-28 23:10:47
+ * Copyright (c) 2019 dluobida .
+ */
+
 package com.dluobida.junjiefinance;
 
 import android.content.Context;

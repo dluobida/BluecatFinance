@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : ic_launcher_round.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+  ~ currentModifyTime : 2019-10-29 21:10:48
+  ~ lastModifyTime : 2019-10-28 23:10:48
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@drawable/ic_launcher_background" />
     <foreground android:drawable="@drawable/ic_launcher_foreground" />
