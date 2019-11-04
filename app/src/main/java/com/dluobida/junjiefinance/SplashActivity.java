@@ -13,10 +13,12 @@ package com.dluobida.junjiefinance;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 
-import androidx.annotation.Nullable;
+
+import com.dluobida.junjiefinance.modules.main.ui.activity.MainActivity;
 
 public class SplashActivity extends Activity {
     @Override
@@ -34,7 +36,7 @@ public class SplashActivity extends Activity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
 

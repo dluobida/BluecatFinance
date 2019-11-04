@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : nav_item_color_selector.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/drawable/nav_item_color_selector.xml
+  ~ currentModifyTime : 2019-10-31 23:49:32
+  ~ lastModifyTime : 2019-10-31 23:49:32
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/bottom_nav_checked" android:state_checked="true"/>
+
+    <item android:color="@color/bottom_nav_not_checked" android:state_checked="false"/>
+</selector>

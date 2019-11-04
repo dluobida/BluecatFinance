@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : nav_menu.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/menu/nav_menu.xml
+  ~ currentModifyTime : 2019-11-01 22:37:09
+  ~ lastModifyTime : 2019-10-29 00:33:33
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+
+        <item android:id="@+id/nav_item_my_collect"
+            android:icon="@drawable/icon_like"
+            android:title="@string/my_collect" />
+
+        <item
+            android:id="@+id/nav_item_todo"
+            android:icon="@drawable/ic_todo_default"
+            android:title="@string/nav_todo" />
+
+        <item
+            android:id="@+id/nav_item_night_mode"
+            android:icon="@drawable/ic_night"
+            android:title="@string/nav_night_mode" />
+
+        <item android:id="@+id/nav_item_setting"
+            android:icon="@drawable/ic_setting"
+            android:title="@string/setting" />
+
+        <item android:id="@+id/nav_item_about_us"
+            android:icon="@drawable/ic_about"
+            android:title="@string/about_us" />
+
+
+    </group>
+</menu>

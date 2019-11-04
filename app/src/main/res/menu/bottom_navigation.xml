@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : bottom_navigation.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/menu/bottom_navigation.xml
+  ~ currentModifyTime : 2019-11-01 23:24:03
+  ~ lastModifyTime : 2019-10-29 00:33:33
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/tab_expand"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_pager"
+        android:title="@string/tab_expand"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/tab_income"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_pager"
+        android:title="@string/tab_income"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/tab_transfer"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_pager"
+        android:title="@string/tab_transfer"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/tab_assets"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_pager"
+        android:title="@string/tab_assets"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/tab_chart"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_pager"
+        android:title="@string/tab_chart"
+        app:showAsAction="ifRoom" />
+
+
+</menu>

@@ -10,4 +10,23 @@
 
 <resources>
     <string name="app_name">JunjieFinance</string>
+
+    <!-- navigation -->
+    <string name="login_in">Login</string>
+    <string name="my_collect">Collect</string>
+    <string name="nav_todo">TODO</string>
+    <string name="nav_night_mode">Night mode</string>
+    <string name="nav_day_mode">Day mode</string>
+    <string name="setting">Setting</string>
+    <string name="about_us">About Us</string>
+
+    <!-- home pager -->
+    <string name="tab_expand">支出</string>
+    <string name="tab_income">收入</string>
+    <string name="tab_transfer">转账</string>
+    <string name="tab_assets">资产</string>
+    <string name="tab_chart">图表</string>
+
+    <!-- behavior -->
+    <string name="scale_down_show_behavior" translatable="false">com.dluobida.junjiefinance.widget.behavior.ScaleDownShowBehavior</string>
 </resources>
