@@ -8,7 +8,7 @@
  * Copyright (c) 2019 dluobida .
  */
 
-package com.dluobida.junjiefinance.modules.main.ui.contract;
+package com.dluobida.junjiefinance.modules.main.contract;
 
 import com.dluobida.junjiefinance.base.presenter.IPresenter;
 import com.dluobida.junjiefinance.base.view.IView;

@@ -14,13 +14,22 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;
 
 public abstract class AbstractSimpleActivity extends SupportActivity {
+
+    private Unbinder unbinder;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+        unbinder = ButterKnife.bind(this);
+        onViewCreated();
+        initToolbar();
+        initView();
+
     }
 
     /**
@@ -33,4 +42,6 @@ public abstract class AbstractSimpleActivity extends SupportActivity {
     protected abstract void initView();
 
     protected abstract void onViewCreated();
+
+    protected abstract void initToolbar();
 }

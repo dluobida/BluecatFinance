@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : fragment_expand.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/layout/fragment_expand.xml
+  ~ currentModifyTime : 2019-11-16 23:33:12
+  ~ lastModifyTime : 2019-11-16 23:33:11
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="支出"
+        android:gravity="center"/>
+
+</LinearLayout>

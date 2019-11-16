@@ -8,10 +8,10 @@
  * Copyright (c) 2019 dluobida .
  */
 
-package com.dluobida.junjiefinance.modules.main.ui.presenter;
+package com.dluobida.junjiefinance.modules.main.presenter;
 
 import com.dluobida.junjiefinance.base.presenter.BasePresenter;
-import com.dluobida.junjiefinance.modules.main.ui.contract.MainContract;
+import com.dluobida.junjiefinance.modules.main.contract.MainContract;
 
 public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
     public MainPresenter() {
