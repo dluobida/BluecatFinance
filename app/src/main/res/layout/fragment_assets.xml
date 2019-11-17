@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : fragment_income.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/layout/fragment_income.xml
+  ~ currentModifyTime : 2019-11-17 21:17:28
+  ~ lastModifyTime : 2019-11-17 21:17:28
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="资产"
+        android:gravity="center"/>
+
+</LinearLayout>

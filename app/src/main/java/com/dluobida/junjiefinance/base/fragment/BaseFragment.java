@@ -22,9 +22,12 @@ import com.dluobida.junjiefinance.base.presenter.IPresenter;
 import com.dluobida.junjiefinance.base.view.IView;
 import com.dluobida.junjiefinance.utils.ToastUtils;
 
+import javax.inject.Inject;
+
 import dagger.android.support.AndroidSupportInjection;
 
 public abstract class BaseFragment<T extends IPresenter> extends AbstractSimpleFragment implements IView {
+    @Inject
     protected T mPresenter;
 
     private MultipleStatusView mMultipleStatusView;

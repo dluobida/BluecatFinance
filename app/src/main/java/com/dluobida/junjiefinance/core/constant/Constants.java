@@ -12,4 +12,8 @@ package com.dluobida.junjiefinance.core.constant;
 
 public class Constants {
     public static final int TYPE_EXPAND = 0;
+    public static final int TYPE_INCOME = 1;
+    public static final int TYPE_TRANSFER = 2;
+    public static final int TYPE_ASSETS = 3;
+    public static final int TYPE_CHART = 4;
 }
