@@ -9,6 +9,7 @@
  */
 
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -32,6 +33,12 @@ android {
     }
 }
 
+greendao {
+    schemaVersion 1
+    targetGenDir 'src/main/java'
+    daoPackage 'com.dluobida.junjiefinance.core.greendao'
+}
+
 
 
 dependencies {
@@ -51,6 +58,9 @@ dependencies {
     //tools
     implementation rootProject.ext.dependencies["fragmentation"]
     implementation rootProject.ext.dependencies["ByeBurger"]
+
+    //dao
+    implementation rootProject.ext.dependencies["greendao"]
 
     //di
     implementation rootProject.ext.dependencies["butterknife"]

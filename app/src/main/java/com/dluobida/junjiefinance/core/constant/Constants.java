@@ -16,4 +16,6 @@ public class Constants {
     public static final int TYPE_TRANSFER = 2;
     public static final int TYPE_ASSETS = 3;
     public static final int TYPE_CHART = 4;
+
+    public static final String DB_NAME = "dluobida_ledger.db";
 }

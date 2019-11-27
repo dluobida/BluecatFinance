@@ -40,6 +40,9 @@ ext {
             "fragmentation"                     : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
             "ByeBurger"                         : "com.github.githubwing:ByeBurger:1.2.3",
 
+            //dao
+            "greendao"                          : "org.greenrobot:greendao:3.2.2",
+
             //di
             "butterknife"                       : "com.jakewharton:butterknife:8.8.1",
             "butterknife-compiler"              : "com.jakewharton:butterknife-compiler:8.8.1",
