@@ -13,6 +13,7 @@ package com.dluobida.junjiefinance.di.module;
 import com.dluobida.junjiefinance.base.application.BaseApplication;
 import com.dluobida.junjiefinance.core.db.DbHelper;
 import com.dluobida.junjiefinance.core.db.DbHelperImpl;
+import com.dluobida.junjiefinance.core.rx.DataManager;
 
 import javax.inject.Singleton;
 
@@ -36,5 +37,11 @@ public class AppModule {
     @Singleton
     DbHelper provideDbHelper(DbHelperImpl dbHelperImpl){
         return dbHelperImpl;
+    }
+
+    @Provides
+    @Singleton
+    DataManager provideDataManager(DbHelper dbHelper){
+        return new DataManager(dbHelper);
     }
 }

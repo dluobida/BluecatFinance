@@ -13,7 +13,10 @@ package com.dluobida.junjiefinance.modules.main.presenter;
 import com.dluobida.junjiefinance.base.presenter.BasePresenter;
 import com.dluobida.junjiefinance.modules.main.contract.MainContract;
 
+import javax.inject.Inject;
+
 public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
+    @Inject
     public MainPresenter() {
 
     }

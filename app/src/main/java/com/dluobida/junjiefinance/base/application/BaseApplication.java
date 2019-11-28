@@ -14,6 +14,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
+import com.dluobida.junjiefinance.core.rx.DataManager;
 import com.dluobida.junjiefinance.di.component.DaggerAppComponent;
 import com.dluobida.junjiefinance.di.module.AppModule;
 
@@ -28,7 +29,12 @@ public class BaseApplication extends Application implements HasActivityInjector 
     @Inject
     DispatchingAndroidInjector<Activity> mAndroidInjector;
 
+    @Inject
+    public DataManager mDataManager;
+
     private static Context mContext;
+
+
     @Override
     public AndroidInjector<Activity> activityInjector() {
         return mAndroidInjector;

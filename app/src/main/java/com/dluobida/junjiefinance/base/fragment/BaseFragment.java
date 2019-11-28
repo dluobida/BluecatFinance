@@ -34,7 +34,7 @@ public abstract class BaseFragment<T extends IPresenter> extends AbstractSimpleF
 
     @Override
     public void onAttach(Activity activity) {
-//        AndroidSupportInjection.inject(this);
+        AndroidSupportInjection.inject(this);
         super.onAttach(activity);
     }
 

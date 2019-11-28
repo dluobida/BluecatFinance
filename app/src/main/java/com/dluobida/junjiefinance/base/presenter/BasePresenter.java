@@ -11,10 +11,16 @@
 package com.dluobida.junjiefinance.base.presenter;
 
 import com.dluobida.junjiefinance.base.view.IView;
+import com.dluobida.junjiefinance.core.rx.DataManager;
+
+import javax.inject.Inject;
 
 public class BasePresenter<T extends IView> implements IPresenter<T> {
 
     protected T mView;
+
+    @Inject
+    public DataManager mDataManager;
 
     @Override
     public void attachView(T view) {

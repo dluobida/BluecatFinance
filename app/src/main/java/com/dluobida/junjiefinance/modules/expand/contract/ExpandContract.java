@@ -12,6 +12,9 @@ package com.dluobida.junjiefinance.modules.expand.contract;
 
 import com.dluobida.junjiefinance.base.presenter.IPresenter;
 import com.dluobida.junjiefinance.base.view.IView;
+import com.dluobida.junjiefinance.core.greendao.ExpandData;
+
+import java.util.List;
 
 public interface ExpandContract {
     interface View extends IView{
@@ -19,6 +22,9 @@ public interface ExpandContract {
     }
 
     interface Presenter extends IPresenter<View>{
+        void saveExpandData(ExpandData expandData);
+
+        List<ExpandData> queryAllExpandData();
 
     }
 

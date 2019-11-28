@@ -20,12 +20,13 @@ import com.dluobida.junjiefinance.core.greendao.ExpandData;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class DbHelperImpl implements DbHelper{
-    private static final int EXPAND_LIST_SIZE = 10;
 
     private DaoSession daoSession;
-
-    public DbHelperImpl(){
+    @Inject
+    DbHelperImpl(){
         initGreenDao();
     }
 
