@@ -23,10 +23,11 @@ public class ExpandDataDao extends AbstractDao<ExpandData, Long> {
      */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Date = new Property(1, long.class, "date", false, "DATE");
-        public final static Property Catagroy = new Property(2, String.class, "catagroy", false, "CATAGROY");
-        public final static Property Account = new Property(3, String.class, "account", false, "ACCOUNT");
-        public final static Property Remark = new Property(4, String.class, "remark", false, "REMARK");
+        public final static Property Date = new Property(1, String.class, "date", false, "DATE");
+        public final static Property Money = new Property(2, String.class, "money", false, "MONEY");
+        public final static Property Catagroy = new Property(3, String.class, "catagroy", false, "CATAGROY");
+        public final static Property Account = new Property(4, String.class, "account", false, "ACCOUNT");
+        public final static Property Remark = new Property(5, String.class, "remark", false, "REMARK");
     }
 
 
@@ -43,10 +44,11 @@ public class ExpandDataDao extends AbstractDao<ExpandData, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"EXPAND_DATA\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"DATE\" INTEGER NOT NULL ," + // 1: date
-                "\"CATAGROY\" TEXT," + // 2: catagroy
-                "\"ACCOUNT\" TEXT," + // 3: account
-                "\"REMARK\" TEXT);"); // 4: remark
+                "\"DATE\" TEXT," + // 1: date
+                "\"MONEY\" TEXT," + // 2: money
+                "\"CATAGROY\" TEXT," + // 3: catagroy
+                "\"ACCOUNT\" TEXT," + // 4: account
+                "\"REMARK\" TEXT);"); // 5: remark
     }
 
     /** Drops the underlying database table. */
@@ -63,21 +65,30 @@ public class ExpandDataDao extends AbstractDao<ExpandData, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
-        stmt.bindLong(2, entity.getDate());
+ 
+        String date = entity.getDate();
+        if (date != null) {
+            stmt.bindString(2, date);
+        }
+ 
+        String money = entity.getMoney();
+        if (money != null) {
+            stmt.bindString(3, money);
+        }
  
         String catagroy = entity.getCatagroy();
         if (catagroy != null) {
-            stmt.bindString(3, catagroy);
+            stmt.bindString(4, catagroy);
         }
  
         String account = entity.getAccount();
         if (account != null) {
-            stmt.bindString(4, account);
+            stmt.bindString(5, account);
         }
  
         String remark = entity.getRemark();
         if (remark != null) {
-            stmt.bindString(5, remark);
+            stmt.bindString(6, remark);
         }
     }
 
@@ -89,21 +100,30 @@ public class ExpandDataDao extends AbstractDao<ExpandData, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
-        stmt.bindLong(2, entity.getDate());
+ 
+        String date = entity.getDate();
+        if (date != null) {
+            stmt.bindString(2, date);
+        }
+ 
+        String money = entity.getMoney();
+        if (money != null) {
+            stmt.bindString(3, money);
+        }
  
         String catagroy = entity.getCatagroy();
         if (catagroy != null) {
-            stmt.bindString(3, catagroy);
+            stmt.bindString(4, catagroy);
         }
  
         String account = entity.getAccount();
         if (account != null) {
-            stmt.bindString(4, account);
+            stmt.bindString(5, account);
         }
  
         String remark = entity.getRemark();
         if (remark != null) {
-            stmt.bindString(5, remark);
+            stmt.bindString(6, remark);
         }
     }
 
@@ -116,10 +136,11 @@ public class ExpandDataDao extends AbstractDao<ExpandData, Long> {
     public ExpandData readEntity(Cursor cursor, int offset) {
         ExpandData entity = new ExpandData( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.getLong(offset + 1), // date
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // catagroy
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // account
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // remark
+            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // date
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // money
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // catagroy
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // account
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // remark
         );
         return entity;
     }
@@ -127,10 +148,11 @@ public class ExpandDataDao extends AbstractDao<ExpandData, Long> {
     @Override
     public void readEntity(Cursor cursor, ExpandData entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setDate(cursor.getLong(offset + 1));
-        entity.setCatagroy(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setAccount(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setRemark(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setDate(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setMoney(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setCatagroy(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setAccount(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setRemark(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
      }
     
     @Override

@@ -23,7 +23,9 @@ public class ExpandData {
     @Id(autoincrement = true)
     private Long id;
 
-    private long date;
+    private String date;
+
+    private String money;
 
     private String catagroy;
 
@@ -31,10 +33,11 @@ public class ExpandData {
 
     private String remark;
 
-    @Generated(hash = 1253590991)
-    public ExpandData(Long id, long date, String catagroy, String account, String remark) {
+    @Generated(hash = 420482904)
+    public ExpandData(Long id, String date, String money, String catagroy, String account, String remark) {
         this.id = id;
         this.date = date;
+        this.money = money;
         this.catagroy = catagroy;
         this.account = account;
         this.remark = remark;
@@ -52,11 +55,11 @@ public class ExpandData {
         this.id = id;
     }
 
-    public long getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(long date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -84,11 +87,20 @@ public class ExpandData {
         this.remark = remark;
     }
 
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
+
     @Override
     public String toString() {
         return "ExpandData{" +
                 "id=" + id +
                 ", date=" + date +
+                ", money='" + money + '\'' +
                 ", catagroy='" + catagroy + '\'' +
                 ", account='" + account + '\'' +
                 ", remark='" + remark + '\'' +
