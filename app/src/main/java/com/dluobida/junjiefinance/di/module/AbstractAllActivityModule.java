@@ -11,6 +11,7 @@
 package com.dluobida.junjiefinance.di.module;
 
 import com.dluobida.junjiefinance.di.component.BaseActivityComponent;
+import com.dluobida.junjiefinance.modules.expand.ui.activity.CreateExpandActivity;
 import com.dluobida.junjiefinance.modules.main.ui.activity.MainActivity;
 
 import dagger.Module;
@@ -21,4 +22,7 @@ public abstract class AbstractAllActivityModule {
 
     @ContributesAndroidInjector(modules = MainActivityModule.class)
     abstract MainActivity contributesMainActivityInjector();
+
+    @ContributesAndroidInjector(modules = CreateExpandActivityModule.class)
+    abstract CreateExpandActivity contributesCreateExpandActivityInjector();
 }

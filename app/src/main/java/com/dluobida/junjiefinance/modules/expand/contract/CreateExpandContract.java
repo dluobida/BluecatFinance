@@ -1,10 +1,10 @@
 /*
  * project ：JunjieFinance
  * author : dluobida
- * class : ExpandContract.java
- * package : com.dluobida.junjiefinance.modules.expand.contract.ExpandContract
- * currentModifyTime : 2019-11-16 23:12:35
- * lastModifyTime : 2019-11-16 23:12:34
+ * class : CreateExpandContract.java
+ * package : com.dluobida.junjiefinance.modules.expand.contract.CreateExpandContract
+ * currentModifyTime : 2019-12-08 16:31:56
+ * lastModifyTime : 2019-12-08 16:31:56
  * Copyright (c) 2019 dluobida .
  */
 
@@ -16,15 +16,15 @@ import com.dluobida.junjiefinance.core.greendao.ExpandData;
 
 import java.util.List;
 
-public interface ExpandContract {
+public interface CreateExpandContract {
     interface View extends IView{
 
     }
 
     interface Presenter extends IPresenter<View>{
+        void saveExpandData(ExpandData expandData);
+
         List<ExpandData> queryAllExpandData();
 
     }
-
-
 }

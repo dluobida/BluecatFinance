@@ -24,11 +24,6 @@ public class ExpandPresenter extends BasePresenter<ExpandContract.View> implemen
 
     }
 
-    @Override
-    public void saveExpandData(ExpandData expandData) {
-        mDataManager.saveExpandData(expandData);
-
-    }
 
     @Override
     public List<ExpandData> queryAllExpandData() {

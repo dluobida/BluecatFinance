@@ -10,39 +10,31 @@
 
 package com.dluobida.junjiefinance.modules.expand.ui.fragment;
 
-import android.util.Log;
+import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.dluobida.junjiefinance.R;
 import com.dluobida.junjiefinance.base.fragment.BaseFragment;
 import com.dluobida.junjiefinance.core.greendao.ExpandData;
+import com.dluobida.junjiefinance.modules.expand.adapter.ExpandListAdapter;
 import com.dluobida.junjiefinance.modules.expand.contract.ExpandContract;
 import com.dluobida.junjiefinance.modules.expand.presenter.ExpandPresenter;
-import com.dluobida.junjiefinance.utils.ToastUtils;
+import com.dluobida.junjiefinance.modules.expand.ui.activity.CreateExpandActivity;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-//TODO 支出页面单独一个activity，此fragment展示列表
 public class ExpandFragment extends BaseFragment<ExpandPresenter> implements ExpandContract.View{
 
     private static final String TAG = ExpandFragment.class.getSimpleName();
-    @BindView(R.id.btn_expand_save)
-    Button btnSave;
-    @BindView(R.id.et_expand_money)
-    EditText etExpandMoney;
-    @BindView(R.id.tv_expand_type)
-    TextView tvExpandType;
-    @BindView(R.id.tv_expand_account)
-    TextView tvExpandAccount;
-    @BindView(R.id.tv_expand_time)
-    TextView tvExpandTime;
-    @BindView(R.id.et_expand_remark)
-    EditText etExpandRemark;
+
+    @BindView(R.id.rv_expand_list)
+    RecyclerView rvExpandList;
+
+    private List<ExpandData> expandDataList;
 
 
     public static ExpandFragment getInstance(){
@@ -50,8 +42,19 @@ public class ExpandFragment extends BaseFragment<ExpandPresenter> implements Exp
         return instance;
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        expandDataList = mPresenter.queryAllExpandData();
+        ExpandListAdapter adapter = new ExpandListAdapter(expandDataList);
+        rvExpandList.setAdapter(adapter);
+    }
+
     @Override
     protected void initView() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(_mActivity);
+        rvExpandList.setLayoutManager(layoutManager);
 
     }
 
@@ -65,32 +68,15 @@ public class ExpandFragment extends BaseFragment<ExpandPresenter> implements Exp
 
     }
 
-    @OnClick({R.id.btn_expand_save})
+    @OnClick({R.id.btn_create_expand})
     public void OnViewClicked(View view){
         switch (view.getId()){
-            case R.id.btn_expand_save:
-                ToastUtils.showToast(_mActivity,"点击了保存");
-                ExpandData expandData = getExpandData();
-                mPresenter.saveExpandData(expandData);
-                List<ExpandData> datas = mPresenter.queryAllExpandData();
-                Log.i("dengjj","expandData="+datas.toString());
+            case R.id.btn_create_expand:
+                Intent intent = new Intent(_mActivity, CreateExpandActivity.class);
+                startActivity(intent);
                 break;
         }
-
     }
 
-    private ExpandData getExpandData(){
-        ExpandData expandData = new ExpandData();
-        String expandMoney = etExpandMoney.getText().toString().trim();
-        String catagroy = tvExpandType.getText().toString();
-        String account = tvExpandAccount.getText().toString();
-        String date = tvExpandTime.getText().toString();
-        String remark = etExpandRemark.getText().toString().trim();
-        expandData.setMoney(expandMoney);
-        expandData.setCatagroy(catagroy);
-        expandData.setAccount(account);
-        expandData.setDate(date);
-        expandData.setRemark(remark);
-        return expandData;
-    }
+
 }

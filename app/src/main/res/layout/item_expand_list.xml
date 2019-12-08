@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : item_expand_list.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/layout/item_expand_list.xml
+  ~ currentModifyTime : 2019-12-08 23:20:09
+  ~ lastModifyTime : 2019-12-08 23:20:08
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="单条支出"
+        android:textSize="20sp"
+        android:layout_marginTop="3dp"
+        android:background="#ff0000"/>
+
+</LinearLayout>

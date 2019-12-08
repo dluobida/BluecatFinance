@@ -12,111 +12,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <EditText
-        android:id="@+id/et_expand_money"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="0.00" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="分类"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/tv_expand_type"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="食品酒水 > 早午晚餐"
-            android:layout_weight="4"
-            android:textSize="20sp"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/background_dark"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="账户"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/tv_expand_account"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="现金(CNY)"
-            android:layout_weight="4"
-            android:textSize="20sp"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/background_dark"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="时间"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/tv_expand_time"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="2019年11月21日 22:12"
-            android:layout_weight="4"
-            android:textSize="20sp"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/background_dark"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="备注"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:gravity="center"/>
-        <EditText
-            android:id="@+id/et_expand_remark"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="..."
-            android:layout_weight="4"
-            android:textSize="20sp"/>
-    </LinearLayout>
+
     <Button
-        android:id="@+id/btn_expand_save"
+        android:id="@+id/btn_create_expand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="保存"/>
+        android:text="创建支出"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_expand_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
