@@ -1,2 +1,2 @@
-# JunjieFinance
-Junjie Finance
+# BluecatFinance
+Bluecat Finance
