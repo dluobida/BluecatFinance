@@ -10,6 +10,7 @@
 
 ext {
     android = [
+            applicationId     : "com.dluobida.bluecat.finance",
             compileSdkVersion : 28,
             buildToolsVersion : "28.0.3",
             minSdkVersion     : 28,

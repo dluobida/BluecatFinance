@@ -9,4 +9,4 @@
  */
 
 include ':app'
-rootProject.name='JunjieFinance'
+rootProject.name='BluecatFinance'

@@ -9,7 +9,7 @@
   -->
 
 <resources>
-    <string name="app_name">JunjieFinance</string>
+    <string name="app_name">蓝猫理财</string>
 
     <!-- navigation -->
     <string name="login_in">Login</string>
