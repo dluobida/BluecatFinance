@@ -41,7 +41,11 @@ public class ExpandListAdapter extends RecyclerView.Adapter<ExpandListAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         ExpandData expandData = mExpandDataList.get(i);
-        viewHolder.tvName.setText(expandData.toString());
+        viewHolder.tvMoney.setText(expandData.getMoney());
+        viewHolder.tvCatagroy.setText(expandData.getCatagroy());
+        viewHolder.tvDate.setText(expandData.getDate());
+        viewHolder.tvAccount.setText(expandData.getAccount());
+        viewHolder.tvRemark.setText(expandData.getRemark());
 
     }
 
@@ -51,10 +55,18 @@ public class ExpandListAdapter extends RecyclerView.Adapter<ExpandListAdapter.Vi
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvName;
+        TextView tvMoney;
+        TextView tvCatagroy;
+        TextView tvDate;
+        TextView tvAccount;
+        TextView tvRemark;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tv_name);
+            tvMoney = itemView.findViewById(R.id.tv_money);
+            tvCatagroy = itemView.findViewById(R.id.tv_catagroy);
+            tvDate = itemView.findViewById(R.id.tv_date);
+            tvAccount = itemView.findViewById(R.id.tv_account);
+            tvRemark = itemView.findViewById(R.id.tv_remark);
         }
     }
 

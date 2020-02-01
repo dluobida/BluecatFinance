@@ -55,6 +55,7 @@ dependencies {
 
     //ui
     implementation rootProject.ext.dependencies["multipleStatusView"]
+    implementation rootProject.ext.dependencies["Android-PickerView"]
 
     //tools
     implementation rootProject.ext.dependencies["fragmentation"]

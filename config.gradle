@@ -37,6 +37,7 @@ ext {
 
             //ui
             "multipleStatusView"                : "com.classic.common:multiple-status-view:1.6",
+            "Android-PickerView"                : "com.contrarywind:Android-PickerView:4.1.9",
 
             //tools
             "fragmentation"                     : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
