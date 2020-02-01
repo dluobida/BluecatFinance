@@ -12,6 +12,7 @@ package com.dluobida.bluecat.finance.di.module;
 
 import com.dluobida.bluecat.finance.di.component.BaseFragmentComponent;
 import com.dluobida.bluecat.finance.modules.expand.ui.fragment.ExpandFragment;
+import com.dluobida.bluecat.finance.modules.income.ui.fragment.IncomeFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -20,5 +21,8 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class AbstractAllFragmentModule {
 
     @ContributesAndroidInjector(modules = ExpandFragmentModule.class)
-    abstract ExpandFragment contributesHomePagerFragmentInject();
+    abstract ExpandFragment contributesExpandFragmentInject();
+
+    @ContributesAndroidInjector(modules = IncomeFragmentModule.class)
+    abstract IncomeFragment contributesIncomeFragmentInject();
 }

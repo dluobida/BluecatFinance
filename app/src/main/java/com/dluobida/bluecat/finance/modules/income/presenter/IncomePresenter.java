@@ -13,7 +13,10 @@ package com.dluobida.bluecat.finance.modules.income.presenter;
 import com.dluobida.bluecat.finance.base.presenter.BasePresenter;
 import com.dluobida.bluecat.finance.modules.income.contract.IncomeContract;
 
+import javax.inject.Inject;
+
 public class IncomePresenter extends BasePresenter<IncomeContract.View> implements IncomeContract.Presenter{
+    @Inject
     public IncomePresenter(){
 
     }
