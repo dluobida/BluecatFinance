@@ -1,0 +1,30 @@
+[
+  {
+    "type": "cash",
+    "name": "现金"
+  },
+  {
+    "type": "creditCard",
+    "name": "信用卡"
+  },
+  {
+    "type": "debitCard",
+    "name": "借记卡"
+  },
+  {
+    "type": "fund",
+    "name": "基金账户"
+  },
+  {
+    "type": "tock",
+    "name": "股票账户"
+  },
+  {
+    "type": "normalFinancial",
+    "name": "一般理财账户"
+  },
+  {
+    "type": "debtAccount",
+    "name": "负债账户"
+  }
+]

@@ -10,13 +10,21 @@
 
 package com.dluobida.bluecat.finance.modules.assets.ui.fragment;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.fragment.BaseFragment;
 import com.dluobida.bluecat.finance.modules.assets.contract.AssetsContract;
 import com.dluobida.bluecat.finance.modules.assets.presenter.AssetsPresenter;
 
+import butterknife.BindView;
+
 public class AssetsFragment extends BaseFragment<AssetsPresenter> implements  AssetsContract.View{
     private static final String TAG = AssetsFragment.class.getSimpleName();
+
+    @BindView(R.id.rv_assets_list)
+    RecyclerView rvAssetsList;
 
     public static AssetsFragment getInstance(){
         AssetsFragment instance = new AssetsFragment();
@@ -25,6 +33,8 @@ public class AssetsFragment extends BaseFragment<AssetsPresenter> implements  As
 
     @Override
     protected void initView() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(_mActivity);
+        rvAssetsList.setLayoutManager(layoutManager);
 
     }
 

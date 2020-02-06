@@ -60,6 +60,8 @@ dependencies {
     //tools
     implementation rootProject.ext.dependencies["fragmentation"]
     implementation rootProject.ext.dependencies["ByeBurger"]
+    implementation rootProject.ext.dependencies["xlog"]
+    implementation rootProject.ext.dependencies["gson"]
 
     //dao
     implementation rootProject.ext.dependencies["greendao"]

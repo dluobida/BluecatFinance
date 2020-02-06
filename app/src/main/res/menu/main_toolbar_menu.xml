@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：BluecatFinance
+  ~ author : dluobida
+  ~ class : main_toolbar_menu.xml
+  ~ package : E:/workspace/ASProject/BluecatFinance/app/src/main/res/menu/main_toolbar_menu.xml
+  ~ currentModifyTime : 2020-02-06 14:29:25
+  ~ lastModifyTime : 2019-10-29 00:33:33
+  ~ Copyright (c) 2020 dluobida .
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_add"
+        android:icon="@drawable/ic_search"
+        android:title="增加"
+        app:showAsAction="ifRoom" />
+
+</menu>

@@ -11,6 +11,7 @@
 package com.dluobida.bluecat.finance.modules.main.ui.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -19,12 +20,16 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.activity.BaseActivity;
 import com.dluobida.bluecat.finance.core.constant.Constants;
+import com.dluobida.bluecat.finance.modules.assets.ui.activity.CreateAccountActivity;
 import com.dluobida.bluecat.finance.modules.assets.ui.fragment.AssetsFragment;
 import com.dluobida.bluecat.finance.modules.chart.ui.fragment.ChartFragment;
 import com.dluobida.bluecat.finance.modules.expand.ui.fragment.ExpandFragment;
@@ -32,6 +37,8 @@ import com.dluobida.bluecat.finance.modules.income.ui.fragment.IncomeFragment;
 import com.dluobida.bluecat.finance.modules.main.contract.MainContract;
 import com.dluobida.bluecat.finance.modules.main.presenter.MainPresenter;
 import com.dluobida.bluecat.finance.modules.transfer.ui.fragment.TransferFragment;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 
@@ -201,5 +208,22 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             }
             return true;
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_toolbar_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_add:
+                Intent intent = new Intent(MainActivity.this, CreateAccountActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return true;
     }
 }

@@ -17,6 +17,7 @@ import android.content.Context;
 import com.dluobida.bluecat.finance.core.rx.DataManager;
 import com.dluobida.bluecat.finance.di.component.DaggerAppComponent;
 import com.dluobida.bluecat.finance.di.module.AppModule;
+import com.dluobida.bluecat.finance.utils.LogUtils;
 
 import javax.inject.Inject;
 
@@ -47,6 +48,9 @@ public class BaseApplication extends Application implements HasActivityInjector 
 
         DaggerAppComponent.builder().appModule(new AppModule(this))
                 .build().inject(this);
+
+        //初始化xlog
+        LogUtils.init();
     }
 
     public static Context getContext(){

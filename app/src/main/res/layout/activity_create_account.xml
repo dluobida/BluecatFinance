@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：BluecatFinance
+  ~ author : dluobida
+  ~ class : activity_create_account.xml
+  ~ package : E:/workspace/ASProject/BluecatFinance/app/src/main/res/layout/activity_create_account.xml
+  ~ currentModifyTime : 2020-02-06 15:40:12
+  ~ lastModifyTime : 2020-02-06 15:40:11
+  ~ Copyright (c) 2020 dluobida .
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ListView
+        android:id="@+id/lv_account_type_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+<!--    <TextView-->
+<!--        android:id="@+id/tv_cash"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="现金"-->
+<!--        android:textSize="20sp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:background="#999999"-->
+<!--        android:paddingLeft="5dp"-->
+<!--        android:layout_marginTop="5dp"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_credit_card"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="信用卡"-->
+<!--        android:textSize="20sp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:background="#999999"-->
+<!--        android:paddingLeft="5dp"-->
+<!--        android:layout_marginTop="5dp"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_debit_card"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="借记卡"-->
+<!--        android:textSize="20sp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:background="#999999"-->
+<!--        android:paddingLeft="5dp"-->
+<!--        android:layout_marginTop="5dp"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_fund"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="基金账户"-->
+<!--        android:textSize="20sp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:background="#999999"-->
+<!--        android:paddingLeft="5dp"-->
+<!--        android:layout_marginTop="5dp"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_tock"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="股票账户"-->
+<!--        android:textSize="20sp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:background="#999999"-->
+<!--        android:paddingLeft="5dp"-->
+<!--        android:layout_marginTop="5dp"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_financial_account"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="一般理财账户"-->
+<!--        android:textSize="20sp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:background="#999999"-->
+<!--        android:paddingLeft="5dp"-->
+<!--        android:layout_marginTop="5dp"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_virtual_machine"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="虚拟账户"-->
+<!--        android:textSize="20sp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:background="#999999"-->
+<!--        android:paddingLeft="5dp"-->
+<!--        android:layout_marginTop="5dp"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/tv_debt_account"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="负债账户"-->
+<!--        android:textSize="20sp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:background="#999999"-->
+<!--        android:paddingLeft="5dp"-->
+<!--        android:layout_marginTop="5dp"/>-->
+
+</LinearLayout>

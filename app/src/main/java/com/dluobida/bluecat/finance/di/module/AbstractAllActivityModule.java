@@ -11,6 +11,7 @@
 package com.dluobida.bluecat.finance.di.module;
 
 import com.dluobida.bluecat.finance.di.component.BaseActivityComponent;
+import com.dluobida.bluecat.finance.modules.assets.ui.activity.CreateAccountActivity;
 import com.dluobida.bluecat.finance.modules.expand.ui.activity.CreateExpandActivity;
 import com.dluobida.bluecat.finance.modules.main.ui.activity.MainActivity;
 
@@ -25,4 +26,7 @@ public abstract class AbstractAllActivityModule {
 
     @ContributesAndroidInjector(modules = CreateExpandActivityModule.class)
     abstract CreateExpandActivity contributesCreateExpandActivityInjector();
+
+    @ContributesAndroidInjector(modules = CreateAccountActivityModule.class)
+    abstract CreateAccountActivity contributesCreateAccountActivityInjector();
 }

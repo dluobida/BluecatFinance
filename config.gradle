@@ -42,6 +42,8 @@ ext {
             //tools
             "fragmentation"                     : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
             "ByeBurger"                         : "com.github.githubwing:ByeBurger:1.2.3",
+            "xlog"                              : "com.elvishew:xlog:1.6.1",
+            "gson"                              : "com.google.code.gson:gson:2.8.5",
 
             //dao
             "greendao"                          : "org.greenrobot:greendao:3.2.2",
