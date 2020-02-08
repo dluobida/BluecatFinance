@@ -1,14 +1,14 @@
 /*
- * project ：JunjieFinance
+ * project ：BluecatFinance
  * author : dluobida
  * class : ExpandData.java
- * package : com.dluobida.junjiefinance.core.greendao.ExpandData
- * currentModifyTime : 2019-11-27 22:50:14
- * lastModifyTime : 2019-11-27 22:50:14
- * Copyright (c) 2019 dluobida .
+ * package : com.dluobida.bluecat.finance.core.db.table.ExpandData
+ * currentModifyTime : 2020-02-08 11:33:21
+ * lastModifyTime : 2020-02-08 10:04:56
+ * Copyright (c) 2020 dluobida .
  */
 
-package com.dluobida.bluecat.finance.core.greendao;
+package com.dluobida.bluecat.finance.core.db.table;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;

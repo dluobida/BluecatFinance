@@ -11,7 +11,8 @@
 package com.dluobida.bluecat.finance.core.rx;
 
 import com.dluobida.bluecat.finance.core.db.DbHelper;
-import com.dluobida.bluecat.finance.core.greendao.ExpandData;
+import com.dluobida.bluecat.finance.core.db.table.AccountData;
+import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 
 import java.util.List;
 
@@ -31,5 +32,15 @@ public class DataManager implements DbHelper {
     @Override
     public List<ExpandData> queryAllExpandData() {
         return mDbHelper.queryAllExpandData();
+    }
+
+    @Override
+    public void saveAccountData(AccountData accountData) {
+        mDbHelper.saveAccountData(accountData);
+    }
+
+    @Override
+    public List<AccountData> queryAllAccountData() {
+        return mDbHelper.queryAllAccountData();
     }
 }

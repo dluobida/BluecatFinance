@@ -11,7 +11,10 @@
 package com.dluobida.bluecat.finance.modules.assets.presenter;
 
 import com.dluobida.bluecat.finance.base.presenter.BasePresenter;
+import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.modules.assets.contract.AssetsContract;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -19,5 +22,10 @@ public class AssetsPresenter extends BasePresenter<AssetsContract.View> implemen
     @Inject
     public AssetsPresenter(){
 
+    }
+
+    @Override
+    public List<AccountData> queryAllAccountData() {
+        return mDataManager.queryAllAccountData();
     }
 }

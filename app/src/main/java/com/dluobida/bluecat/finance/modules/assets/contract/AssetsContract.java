@@ -12,6 +12,9 @@ package com.dluobida.bluecat.finance.modules.assets.contract;
 
 import com.dluobida.bluecat.finance.base.presenter.IPresenter;
 import com.dluobida.bluecat.finance.base.view.IView;
+import com.dluobida.bluecat.finance.core.db.table.AccountData;
+
+import java.util.List;
 
 public interface AssetsContract {
     interface View extends IView {
@@ -19,6 +22,7 @@ public interface AssetsContract {
     }
 
     interface Presenter extends IPresenter<View> {
+        List<AccountData> queryAllAccountData();
 
     }
 }

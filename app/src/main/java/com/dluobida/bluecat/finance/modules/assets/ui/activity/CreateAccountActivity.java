@@ -10,6 +10,7 @@
 
 package com.dluobida.bluecat.finance.modules.assets.ui.activity;
 
+import android.content.Intent;
 import android.widget.ListView;
 
 import com.dluobida.bluecat.finance.R;
@@ -20,12 +21,14 @@ import com.dluobida.bluecat.finance.modules.assets.contract.CreateAccountContrac
 import com.dluobida.bluecat.finance.modules.assets.presenter.CreateAccountPresenter;
 import com.dluobida.bluecat.finance.utils.AssetsUtils;
 import com.dluobida.bluecat.finance.utils.LogUtils;
+import com.dluobida.bluecat.finance.utils.ToastUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnItemClick;
 
 public class CreateAccountActivity extends BaseActivity<CreateAccountPresenter> implements CreateAccountContract.View {
 
@@ -52,6 +55,14 @@ public class CreateAccountActivity extends BaseActivity<CreateAccountPresenter> 
     protected void initToolbar() {
 
     }
+
+    @OnItemClick({R.id.lv_account_type_list})
+    public void OnItemClick(int position){
+        Intent intent = new Intent(this,AccountDetailActivity.class);
+        intent.putExtra("accountType",datas.get(position).getType());
+        startActivity(intent);
+    }
+
 
     private List<AccountTypeBean> getAccountTypes(){
         String accountType = AssetsUtils.getJsonFromAsset(this,"accountType.json");

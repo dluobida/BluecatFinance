@@ -17,7 +17,7 @@ import android.view.View;
 
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.fragment.BaseFragment;
-import com.dluobida.bluecat.finance.core.greendao.ExpandData;
+import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 import com.dluobida.bluecat.finance.modules.expand.adapter.ExpandListAdapter;
 import com.dluobida.bluecat.finance.modules.expand.contract.ExpandContract;
 import com.dluobida.bluecat.finance.modules.expand.presenter.ExpandPresenter;

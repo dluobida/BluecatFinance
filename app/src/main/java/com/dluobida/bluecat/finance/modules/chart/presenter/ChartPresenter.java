@@ -13,7 +13,10 @@ package com.dluobida.bluecat.finance.modules.chart.presenter;
 import com.dluobida.bluecat.finance.base.presenter.BasePresenter;
 import com.dluobida.bluecat.finance.modules.chart.contract.ChartContract;
 
+import javax.inject.Inject;
+
 public class ChartPresenter extends BasePresenter<ChartContract.View> implements ChartContract.Presenter{
+    @Inject
     public ChartPresenter(){
 
     }

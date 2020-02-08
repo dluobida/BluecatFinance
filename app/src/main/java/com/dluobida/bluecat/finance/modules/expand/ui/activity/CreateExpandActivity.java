@@ -25,7 +25,7 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.activity.BaseActivity;
-import com.dluobida.bluecat.finance.core.greendao.ExpandData;
+import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 import com.dluobida.bluecat.finance.modules.expand.contract.CreateExpandContract;
 import com.dluobida.bluecat.finance.modules.expand.presenter.CreateExpandPresenter;
 import com.dluobida.bluecat.finance.utils.ToastUtils;

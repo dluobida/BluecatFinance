@@ -13,7 +13,10 @@ package com.dluobida.bluecat.finance.modules.transfer.presenter;
 import com.dluobida.bluecat.finance.base.presenter.BasePresenter;
 import com.dluobida.bluecat.finance.modules.transfer.contract.TransferContract;
 
+import javax.inject.Inject;
+
 public class TransferPresenter extends BasePresenter<TransferContract.View> implements TransferContract.Presenter{
+    @Inject
     public TransferPresenter(){
 
     }

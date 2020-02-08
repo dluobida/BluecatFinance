@@ -11,7 +11,7 @@
 package com.dluobida.bluecat.finance.modules.expand.presenter;
 
 import com.dluobida.bluecat.finance.base.presenter.BasePresenter;
-import com.dluobida.bluecat.finance.core.greendao.ExpandData;
+import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 import com.dluobida.bluecat.finance.modules.expand.contract.CreateExpandContract;
 
 import java.util.List;

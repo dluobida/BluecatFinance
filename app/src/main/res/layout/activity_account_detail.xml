@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：BluecatFinance
+  ~ author : dluobida
+  ~ class : activity_account_detail.xml
+  ~ package : E:/workspace/ASProject/BluecatFinance/app/src/main/res/layout/activity_account_detail.xml
+  ~ currentModifyTime : 2020-02-08 11:59:06
+  ~ lastModifyTime : 2020-02-08 11:59:05
+  ~ Copyright (c) 2020 dluobida .
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/et_account_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入账户名称"/>
+    <EditText
+        android:id="@+id/et_account_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入金额"/>
+    <EditText
+        android:id="@+id/et_account_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入备注"/>
+    <Button
+        android:id="@+id/btn_account_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="创建"/>
+
+</LinearLayout>

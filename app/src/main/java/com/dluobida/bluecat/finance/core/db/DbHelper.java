@@ -10,7 +10,8 @@
 
 package com.dluobida.bluecat.finance.core.db;
 
-import com.dluobida.bluecat.finance.core.greendao.ExpandData;
+import com.dluobida.bluecat.finance.core.db.table.AccountData;
+import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 
 import java.util.List;
 
@@ -27,4 +28,16 @@ public interface DbHelper {
      * @return
      */
     List<ExpandData> queryAllExpandData();
+
+    /**
+     * 创建新账户
+     * @param accountData
+     */
+    void saveAccountData(AccountData accountData);
+
+    /**
+     * 查询所有账户数据
+     * @return
+     */
+    List<AccountData> queryAllAccountData();
 }

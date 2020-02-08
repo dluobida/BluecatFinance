@@ -14,9 +14,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.dluobida.bluecat.finance.base.application.BaseApplication;
 import com.dluobida.bluecat.finance.core.constant.Constants;
+import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.greendao.DaoMaster;
 import com.dluobida.bluecat.finance.core.greendao.DaoSession;
-import com.dluobida.bluecat.finance.core.greendao.ExpandData;
+import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 
 import java.util.List;
 
@@ -48,6 +49,16 @@ public class DbHelperImpl implements DbHelper{
     @Override
     public List<ExpandData> queryAllExpandData() {
         return daoSession.getExpandDataDao().loadAll();
+    }
+
+    @Override
+    public void saveAccountData(AccountData accountData) {
+        daoSession.getAccountDataDao().insert(accountData);
+    }
+
+    @Override
+    public List<AccountData> queryAllAccountData() {
+        return daoSession.getAccountDataDao().loadAll();
     }
 
 }

@@ -36,7 +36,7 @@ android {
 greendao {
     schemaVersion 1
     targetGenDir 'src/main/java'
-    daoPackage 'com.dluobida.junjiefinance.core.greendao'
+    daoPackage 'com.dluobida.bluecat.finance.core.greendao'
 }
 
 
