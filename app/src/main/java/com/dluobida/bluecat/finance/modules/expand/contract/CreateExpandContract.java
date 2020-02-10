@@ -12,6 +12,7 @@ package com.dluobida.bluecat.finance.modules.expand.contract;
 
 import com.dluobida.bluecat.finance.base.presenter.IPresenter;
 import com.dluobida.bluecat.finance.base.view.IView;
+import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 
 import java.util.List;
@@ -25,6 +26,8 @@ public interface CreateExpandContract {
         void saveExpandData(ExpandData expandData);
 
         List<ExpandData> queryAllExpandData();
+
+        List<AccountData> queryAllAccountData();
 
     }
 }

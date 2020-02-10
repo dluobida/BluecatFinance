@@ -11,6 +11,8 @@
 package com.dluobida.bluecat.finance.modules.expand.ui.activity;
 
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,10 +27,17 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.activity.BaseActivity;
+import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
+import com.dluobida.bluecat.finance.modules.assets.bean.AccountTypeBean;
+import com.dluobida.bluecat.finance.modules.expand.bean.CatagroyBean;
 import com.dluobida.bluecat.finance.modules.expand.contract.CreateExpandContract;
 import com.dluobida.bluecat.finance.modules.expand.presenter.CreateExpandPresenter;
+import com.dluobida.bluecat.finance.utils.AssetsUtils;
+import com.dluobida.bluecat.finance.utils.LogUtils;
 import com.dluobida.bluecat.finance.utils.ToastUtils;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,6 +48,10 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> implements CreateExpandContract.View {
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.toolbar_title)
+    TextView mTitle;
     @BindView(R.id.btn_expand_save)
     Button btnSave;
     @BindView(R.id.et_expand_money)
@@ -64,6 +77,12 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
 
     @Override
     protected void initToolbar() {
+        setSupportActionBar(mToolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setDisplayShowTitleEnabled(false);
+            mTitle.setText("创建支出");
+        }
 
     }
 
@@ -93,9 +112,7 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
     }
 
     private void chooseExpandaccount() {
-        List<String> options1Items = new ArrayList<>();
-        options1Items.add("支付宝");
-        options1Items.add("京东支付");
+        List<String> options1Items = getAccountList();
         OptionsPickerView pvOptions = new OptionsPickerBuilder(CreateExpandActivity.this, new OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -123,6 +140,15 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
 
     }
 
+    private List<String> getAccountList(){
+        List<String> accountList = new ArrayList<>();
+        List<AccountData> datas = mPresenter.queryAllAccountData();
+        for (AccountData item : datas) {
+            accountList.add(item.getName());
+        }
+        return accountList;
+    }
+
     private ExpandData getExpandData() {
         ExpandData expandData = new ExpandData();
         String expandMoney = etExpandMoney.getText().toString().trim();
@@ -139,19 +165,13 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
     }
 
     private void chooseExpandType() {
+        List<CatagroyBean> catagroys = getCatagroy();
         List<String> options1Items = new ArrayList<>();
-        options1Items.add("食品酒水");
-        options1Items.add("居家物业");
         List<List<String>> options2Items = new ArrayList<>();
-        List<String> item1 = new ArrayList<>();
-        item1.add("早午晚餐");
-        item1.add("烟酒茶");
-        options2Items.add(item1);
-        List<String> item2 = new ArrayList<>();
-        item2.add("早午晚餐2");
-        item2.add("烟酒茶2");
-        options2Items.add(item2);
-
+        for(int i=0;i<catagroys.size();i++){
+            options1Items.add(catagroys.get(i).getName());
+            options2Items.add(catagroys.get(i).getSecondType());
+        }
         OptionsPickerView pvOptions = new OptionsPickerBuilder(CreateExpandActivity.this, new OnOptionsSelectListener() {
             @Override 
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -193,5 +213,13 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         Log.d("getTime()", "choice date millis: " + date.getTime());
         SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
         return format.format(date);
+    }
+
+    private List<CatagroyBean> getCatagroy(){
+        String catagroy = AssetsUtils.getJsonFromAsset(this,"catagroy.json");
+        Gson gson = new Gson();
+        List<CatagroyBean> datas = gson.fromJson(catagroy, new TypeToken<List<CatagroyBean>>(){}.getType());
+        LogUtils.i("catagroy=" + datas.toString());
+        return datas;
     }
 }

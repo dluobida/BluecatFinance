@@ -15,31 +15,31 @@
     <item
         android:id="@+id/tab_expand"
         android:enabled="true"
-        android:icon="@drawable/ic_home_pager"
+        android:icon="@drawable/ic_expand"
         android:title="@string/tab_expand"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/tab_income"
         android:enabled="true"
-        android:icon="@drawable/ic_home_pager"
+        android:icon="@drawable/ic_income"
         android:title="@string/tab_income"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/tab_transfer"
         android:enabled="true"
-        android:icon="@drawable/ic_home_pager"
+        android:icon="@drawable/ic_transfer"
         android:title="@string/tab_transfer"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/tab_assets"
         android:enabled="true"
-        android:icon="@drawable/ic_home_pager"
+        android:icon="@drawable/ic_asset"
         android:title="@string/tab_assets"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/tab_chart"
         android:enabled="true"
-        android:icon="@drawable/ic_home_pager"
+        android:icon="@drawable/ic_chart"
         android:title="@string/tab_chart"
         app:showAsAction="ifRoom" />
 

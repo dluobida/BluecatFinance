@@ -32,6 +32,7 @@ import com.dluobida.bluecat.finance.core.constant.Constants;
 import com.dluobida.bluecat.finance.modules.assets.ui.activity.CreateAccountActivity;
 import com.dluobida.bluecat.finance.modules.assets.ui.fragment.AssetsFragment;
 import com.dluobida.bluecat.finance.modules.chart.ui.fragment.ChartFragment;
+import com.dluobida.bluecat.finance.modules.expand.ui.activity.CreateExpandActivity;
 import com.dluobida.bluecat.finance.modules.expand.ui.fragment.ExpandFragment;
 import com.dluobida.bluecat.finance.modules.income.ui.fragment.IncomeFragment;
 import com.dluobida.bluecat.finance.modules.main.contract.MainContract;
@@ -220,10 +221,30 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_add:
-                Intent intent = new Intent(MainActivity.this, CreateAccountActivity.class);
-                startActivity(intent);
+                addByCurrentFg(mCurrentFgIndex);
                 break;
         }
         return true;
     }
+
+    private void addByCurrentFg(int currentFgIndex){
+        switch (currentFgIndex){
+            case Constants.TYPE_EXPAND:
+                Intent createExpandIntent = new Intent(MainActivity.this, CreateExpandActivity.class);
+                startActivity(createExpandIntent);
+                break;
+            case Constants.TYPE_INCOME:
+                break;
+            case Constants.TYPE_TRANSFER:
+                break;
+            case Constants.TYPE_ASSETS:
+                Intent createAccountIntent = new Intent(MainActivity.this, CreateAccountActivity.class);
+                startActivity(createAccountIntent);
+                break;
+            case Constants.TYPE_CHART:
+                break;
+
+        }
+    }
+
 }

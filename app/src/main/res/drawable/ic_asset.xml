@@ -1,0 +1,15 @@
+<!--
+  ~ project ：BluecatFinance
+  ~ author : dluobida
+  ~ class : ic_asset.xml
+  ~ package : E:/workspace/ASProject/BluecatFinance/app/src/main/res/drawable/ic_asset.xml
+  ~ currentModifyTime : 2020-02-10 22:27:18
+  ~ lastModifyTime : 2020-02-10 22:27:18
+  ~ Copyright (c) 2020 dluobida .
+  -->
+
+<vector android:height="24dp" android:viewportHeight="1024"
+    android:viewportWidth="1024" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#e6e6e6" android:pathData="M511.63,36.57C249.2,36.57 36.57,248.54 36.57,510.03c0,261.56 212.63,473.45 475.06,473.45 262.36,0 475.06,-211.89 475.06,-473.45C986.7,248.54 773.85,36.57 511.63,36.57zM511.63,924.38c-229.45,0 -415.67,-185.42 -415.67,-414.35 0,-228.79 186.22,-414.35 415.67,-414.35 229.6,0.15 415.67,185.56 415.67,414.35s-186.08,414.35 -415.67,414.35z"/>
+    <path android:fillColor="#e6e6e6" android:pathData="M719.43,510.03a29.7,29.7 0,1 0,0 -59.25H553.69l152.14,-151.55a29.7,29.7 0,0 0,-42.06 -41.91L511.56,408.87 359.64,257.32a29.7,29.7 0,0 0,-42.06 41.91l152.14,151.55H303.69a29.7,29.7 0,0 0,0 59.25h178.1v59.25H303.76a29.7,29.7 0,0 0,0 59.25h178.1v147.89c0,16.38 13.31,29.62 29.77,29.62 16.38,0 29.7,-13.17 29.7,-29.62V628.37h178.1a29.7,29.7 0,1 0,0 -59.25H541.26v-59.25h178.18v0.15z"/>
+</vector>

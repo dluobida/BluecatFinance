@@ -13,11 +13,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_create_expand"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="创建支出"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_expand_list"
         android:layout_width="match_parent"

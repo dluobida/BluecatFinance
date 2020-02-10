@@ -68,15 +68,4 @@ public class ExpandFragment extends BaseFragment<ExpandPresenter> implements Exp
 
     }
 
-    @OnClick({R.id.btn_create_expand})
-    public void OnViewClicked(View view){
-        switch (view.getId()){
-            case R.id.btn_create_expand:
-                Intent intent = new Intent(_mActivity, CreateExpandActivity.class);
-                startActivity(intent);
-                break;
-        }
-    }
-
-
 }

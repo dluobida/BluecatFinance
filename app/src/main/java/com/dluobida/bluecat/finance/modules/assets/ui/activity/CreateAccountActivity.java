@@ -11,7 +11,10 @@
 package com.dluobida.bluecat.finance.modules.assets.ui.activity;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.activity.BaseActivity;
@@ -35,7 +38,10 @@ public class CreateAccountActivity extends BaseActivity<CreateAccountPresenter> 
     private List<AccountTypeBean> datas;
     private AccountTypeAdapter adapter;
 
-
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.toolbar_title)
+    TextView mTitle;
     @BindView(R.id.lv_account_type_list)
     ListView lvAccountTypeList;
     @Override
@@ -53,6 +59,12 @@ public class CreateAccountActivity extends BaseActivity<CreateAccountPresenter> 
 
     @Override
     protected void initToolbar() {
+        setSupportActionBar(mToolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setDisplayShowTitleEnabled(false);
+            mTitle.setText("账户类型");
+        }
 
     }
 

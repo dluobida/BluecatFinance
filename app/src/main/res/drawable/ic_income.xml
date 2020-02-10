@@ -1,0 +1,15 @@
+<!--
+  ~ project ：BluecatFinance
+  ~ author : dluobida
+  ~ class : ic_income.xml
+  ~ package : E:/workspace/ASProject/BluecatFinance/app/src/main/res/drawable/ic_income.xml
+  ~ currentModifyTime : 2020-02-10 22:25:07
+  ~ lastModifyTime : 2020-02-10 22:25:07
+  ~ Copyright (c) 2020 dluobida .
+  -->
+
+<vector android:height="24dp" android:viewportHeight="1024"
+    android:viewportWidth="1024" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#e6e6e6" android:pathData="M941.82,323.29C968.02,382.85 981.33,446.38 981.33,512c0,258.82 -210.56,469.33 -469.33,469.33 -258.82,0 -469.33,-210.52 -469.33,-469.33S253.18,42.67 512,42.67v85.33c-211.75,0 -384,172.25 -384,384 0,211.71 172.25,384 384,384 211.71,0 384,-172.29 384,-384 0,-53.76 -10.88,-105.64 -32.3,-154.37l78.12,-34.35zM424.83,364.5l87.68,87.68 87.17,-87.13L660.05,425.39 573.44,512L682.67,512v85.33h-128v128h-85.33v-128L341.33,597.33v-85.33h110.29L364.5,424.83l60.33,-60.33z"/>
+    <path android:fillColor="#e6e6e6" android:pathData="M981.33,173.18h-281.56l76.84,-73.13L716.37,42.67l-149.16,141.99a39.21,39.21 0,0 0,0 57.34L716.33,384l60.29,-57.39L700.59,254.29H981.33V173.18z"/>
+</vector>

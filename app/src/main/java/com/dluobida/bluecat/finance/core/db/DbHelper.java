@@ -40,4 +40,6 @@ public interface DbHelper {
      * @return
      */
     List<AccountData> queryAllAccountData();
+
+    void updateAccountData(String accountName,String money);
 }

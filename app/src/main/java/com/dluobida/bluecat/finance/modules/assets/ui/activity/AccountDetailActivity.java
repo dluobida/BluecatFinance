@@ -11,7 +11,10 @@
 package com.dluobida.bluecat.finance.modules.assets.ui.activity;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.activity.BaseActivity;
@@ -25,6 +28,10 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class AccountDetailActivity extends BaseActivity<AccountDetailPresenter> implements AccountDetailContract.View {
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.toolbar_title)
+    TextView mTitle;
     @BindView(R.id.et_account_name)
     EditText etAccountName;
     @BindView(R.id.et_account_money)
@@ -49,6 +56,12 @@ public class AccountDetailActivity extends BaseActivity<AccountDetailPresenter> 
 
     @Override
     protected void initToolbar() {
+        setSupportActionBar(mToolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setDisplayShowTitleEnabled(false);
+            mTitle.setText("创建账户");
+        }
 
     }
 

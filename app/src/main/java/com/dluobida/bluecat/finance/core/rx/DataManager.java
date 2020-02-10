@@ -43,4 +43,9 @@ public class DataManager implements DbHelper {
     public List<AccountData> queryAllAccountData() {
         return mDbHelper.queryAllAccountData();
     }
+
+    @Override
+    public void updateAccountData(String accountName, String money) {
+        mDbHelper.updateAccountData(accountName,money);
+    }
 }
