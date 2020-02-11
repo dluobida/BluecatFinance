@@ -56,12 +56,16 @@ dependencies {
     //ui
     implementation rootProject.ext.dependencies["multipleStatusView"]
     implementation rootProject.ext.dependencies["Android-PickerView"]
+    implementation rootProject.ext.dependencies["SmartRefreshLayout"]
+    implementation rootProject.ext.dependencies["SmartRefreshHeader"]
+    implementation rootProject.ext.dependencies["DropDownMenu"]
 
     //tools
     implementation rootProject.ext.dependencies["fragmentation"]
     implementation rootProject.ext.dependencies["ByeBurger"]
     implementation rootProject.ext.dependencies["xlog"]
     implementation rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
 
     //dao
     implementation rootProject.ext.dependencies["greendao"]

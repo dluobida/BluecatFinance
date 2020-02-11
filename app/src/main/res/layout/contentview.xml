@@ -1,0 +1,16 @@
+<!--
+  ~ project ：BluecatFinance
+  ~ author : dluobida
+  ~ class : contentview.xml
+  ~ package : E:/workspace/ASProject/BluecatFinance/app/src/main/res/layout/contentview.xml
+  ~ currentModifyTime : 2020-02-11 21:28:09
+  ~ lastModifyTime : 2016-04-12 09:12:12
+  ~ Copyright (c) 2020 dluobida .
+  -->
+
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:text="这是内容区域"/>

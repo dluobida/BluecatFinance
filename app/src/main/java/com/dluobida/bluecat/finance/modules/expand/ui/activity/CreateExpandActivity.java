@@ -34,6 +34,7 @@ import com.dluobida.bluecat.finance.modules.expand.bean.CatagroyBean;
 import com.dluobida.bluecat.finance.modules.expand.contract.CreateExpandContract;
 import com.dluobida.bluecat.finance.modules.expand.presenter.CreateExpandPresenter;
 import com.dluobida.bluecat.finance.utils.AssetsUtils;
+import com.dluobida.bluecat.finance.utils.DateUtils;
 import com.dluobida.bluecat.finance.utils.LogUtils;
 import com.dluobida.bluecat.finance.utils.ToastUtils;
 import com.google.gson.Gson;
@@ -154,12 +155,14 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         String expandMoney = etExpandMoney.getText().toString().trim();
         String catagroy = tvExpandType.getText().toString();
         String account = tvExpandAccount.getText().toString();
-        String date = tvExpandTime.getText().toString();
         String remark = etExpandRemark.getText().toString().trim();
+        String date = tvExpandTime.getText().toString();
+        //将date转换为时间戳
+        String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD_HH_MM);
         expandData.setMoney(expandMoney);
         expandData.setCatagroy(catagroy);
         expandData.setAccount(account);
-        expandData.setDate(date);
+        expandData.setDate(time);
         expandData.setRemark(remark);
         return expandData;
     }
@@ -203,16 +206,10 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         TimePickerView pvTime = new TimePickerBuilder(CreateExpandActivity.this, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
-                tvExpandTime.setText(getTime(date));
+                tvExpandTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD_HH_MM));
             }
         }).setType(new boolean[]{true, true, true, true, true, false}).build();
         pvTime.show();
-    }
-
-    private String getTime(Date date) {
-        Log.d("getTime()", "choice date millis: " + date.getTime());
-        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
-        return format.format(date);
     }
 
     private List<CatagroyBean> getCatagroy(){

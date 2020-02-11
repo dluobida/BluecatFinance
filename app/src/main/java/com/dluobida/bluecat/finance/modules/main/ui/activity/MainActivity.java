@@ -22,6 +22,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +43,7 @@ import com.dluobida.bluecat.finance.modules.transfer.ui.fragment.TransferFragmen
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
 
@@ -244,6 +246,37 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             case Constants.TYPE_CHART:
                 break;
 
+        }
+    }
+
+    @OnClick({R.id.main_floating_action_btn})
+    void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.main_floating_action_btn:
+                jumpToTheTop();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void jumpToTheTop() {
+        switch (mCurrentFgIndex) {
+            case Constants.TYPE_EXPAND:
+                if (mExpandFragment != null) {
+                    mExpandFragment.jumpToTheTop();
+                }
+                break;
+            case Constants.TYPE_INCOME:
+                break;
+            case Constants.TYPE_ASSETS:
+                break;
+            case Constants.TYPE_TRANSFER:
+                break;
+            case Constants.TYPE_CHART:
+                break;
+            default:
+                break;
         }
     }
 

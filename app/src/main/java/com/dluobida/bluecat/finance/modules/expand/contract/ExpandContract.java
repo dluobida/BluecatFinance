@@ -13,16 +13,21 @@ package com.dluobida.bluecat.finance.modules.expand.contract;
 import com.dluobida.bluecat.finance.base.presenter.IPresenter;
 import com.dluobida.bluecat.finance.base.view.IView;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
+import com.dluobida.bluecat.finance.modules.expand.bean.ExpandListData;
 
 import java.util.List;
 
 public interface ExpandContract {
     interface View extends IView{
+       void showExpandListData(ExpandListData expandListData,boolean isRefresh);
 
     }
 
     interface Presenter extends IPresenter<View>{
         List<ExpandData> queryAllExpandData();
+        void getExpandListData(boolean isShowStatusView);
+        void refreshLayout(boolean isShowStatusView);
+        void loadMore();
 
     }
 

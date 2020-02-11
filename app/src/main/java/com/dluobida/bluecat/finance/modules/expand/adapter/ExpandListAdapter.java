@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
+import com.dluobida.bluecat.finance.utils.DateUtils;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class ExpandListAdapter extends RecyclerView.Adapter<ExpandListAdapter.Vi
         ExpandData expandData = mExpandDataList.get(i);
         viewHolder.tvMoney.setText(expandData.getMoney());
         viewHolder.tvCatagroy.setText(expandData.getCatagroy());
-        viewHolder.tvDate.setText(expandData.getDate());
+        viewHolder.tvDate.setText(DateUtils.timeToDate(expandData.getDate(),DateUtils.YYYY_MM_DD_HH_MM));
         viewHolder.tvAccount.setText(expandData.getAccount());
         viewHolder.tvRemark.setText(expandData.getRemark());
 

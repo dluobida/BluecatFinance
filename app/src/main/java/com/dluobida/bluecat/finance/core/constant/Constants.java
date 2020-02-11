@@ -18,4 +18,6 @@ public class Constants {
     public static final int TYPE_CHART = 4;
 
     public static final String DB_NAME = "dluobida_ledger.db";
+
+    public static final String EXPAND_CID = "expand_cid";
 }

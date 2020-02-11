@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：BluecatFinance
+  ~ author : dluobida
+  ~ class : header_expand.xml
+  ~ package : E:/workspace/ASProject/BluecatFinance/app/src/main/res/layout/header_expand.xml
+  ~ currentModifyTime : 2020-02-11 21:13:40
+  ~ lastModifyTime : 2020-02-11 21:13:40
+  ~ Copyright (c) 2020 dluobida .
+  -->
+
+<com.zxl.library.DropDownMenu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drop_down_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:ddmaskColor="@color/mask_color"
+    app:ddmenuBackgroundColor="@color/white"
+    app:ddmenuMaxHeight="280dp"
+    app:ddmenuSelectedIcon="@mipmap/drop_down_selected_icon"
+    app:ddmenuTextSize="13sp"
+    app:ddmenuUnselectedIcon="@mipmap/drop_down_unselected_icon"
+    app:ddneedSetSlectedColor="true"
+    app:ddtextSelectedColor="@color/drop_down_selected"
+    app:ddtextUnselectedColor="@color/drop_down_unselected" />
