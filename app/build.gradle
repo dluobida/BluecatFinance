@@ -44,6 +44,8 @@ greendao {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
     //base
     implementation rootProject.ext.dependencies["appcompat-v7"]
     implementation rootProject.ext.dependencies["cardview-v7"]
@@ -58,7 +60,7 @@ dependencies {
     implementation rootProject.ext.dependencies["Android-PickerView"]
     implementation rootProject.ext.dependencies["SmartRefreshLayout"]
     implementation rootProject.ext.dependencies["SmartRefreshHeader"]
-    implementation rootProject.ext.dependencies["DropDownMenu"]
+//    implementation rootProject.ext.dependencies["DropDownMenu"]
 
     //tools
     implementation rootProject.ext.dependencies["fragmentation"]

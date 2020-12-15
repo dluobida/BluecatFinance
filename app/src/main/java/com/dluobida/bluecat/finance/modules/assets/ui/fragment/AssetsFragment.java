@@ -21,6 +21,7 @@ import com.dluobida.bluecat.finance.modules.assets.contract.AssetsContract;
 import com.dluobida.bluecat.finance.modules.assets.presenter.AssetsPresenter;
 import com.dluobida.bluecat.finance.utils.LogUtils;
 import com.dluobida.bluecat.finance.utils.ToastUtils;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 import java.util.List;
 
@@ -31,6 +32,8 @@ public class AssetsFragment extends BaseFragment<AssetsPresenter> implements  As
 
     @BindView(R.id.rv_assets_list)
     RecyclerView rvAssetsList;
+    @BindView(R.id.refreshLayout)
+    RefreshLayout mRefreshLayout;
 
     public static AssetsFragment getInstance(){
         AssetsFragment instance = new AssetsFragment();
@@ -41,6 +44,7 @@ public class AssetsFragment extends BaseFragment<AssetsPresenter> implements  As
     protected void initView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(_mActivity);
         rvAssetsList.setLayoutManager(layoutManager);
+        rvAssetsList.setHasFixedSize(true);
 
     }
 
@@ -51,7 +55,21 @@ public class AssetsFragment extends BaseFragment<AssetsPresenter> implements  As
 
     @Override
     protected void initEventAndData() {
+        initRefreshLayout();
 
+    }
+
+    private void initRefreshLayout() {
+        mRefreshLayout.setOnRefreshListener(refreshLayout -> {
+            LogUtils.i("onRefresh called");
+//            mPresenter.refreshLayout(false);
+            refreshLayout.finishRefresh();
+        });
+        mRefreshLayout.setOnLoadMoreListener(refreshLayout -> {
+            LogUtils.i("onLoadMore called");
+//            mPresenter.loadMore();
+            refreshLayout.finishLoadMore();
+        });
     }
 
     @Override

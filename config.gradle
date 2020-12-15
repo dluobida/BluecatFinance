@@ -41,7 +41,7 @@ ext {
             "Android-PickerView"                : "com.contrarywind:Android-PickerView:4.1.9",
             "SmartRefreshLayout"                : "com.scwang.smartrefresh:SmartRefreshLayout:${version["smartrefreshVersion"]}",
             "SmartRefreshHeader"                : "com.scwang.smartrefresh:SmartRefreshHeader:${version["smartrefreshVersion"]}",
-            "DropDownMenu"                      : "com.github.fg2q1q3q:DropDownMenu:1.1.1",
+//            "DropDownMenu"                      : "com.github.fg2q1q3q:DropDownMenu:1.1.1",
 
             //tools
             "fragmentation"                     : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
