@@ -2,13 +2,13 @@
  * project ：BluecatFinance
  * author : dluobida
  * class : CatagroyBean.java
- * package : com.dluobida.bluecat.finance.modules.expand.bean.CatagroyBean
- * currentModifyTime : 2020-02-10 13:54:53
- * lastModifyTime : 2020-02-10 13:54:53
+ * package : com.dluobida.bluecat.finance.core.bean.CatagroyBean
+ * currentModifyTime : 2020-12-16 22:20:57
+ * lastModifyTime : 2020-02-10 14:00:00
  * Copyright (c) 2020 dluobida .
  */
 
-package com.dluobida.bluecat.finance.modules.expand.bean;
+package com.dluobida.bluecat.finance.core.bean;
 
 import java.util.List;
 

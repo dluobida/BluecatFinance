@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：JunjieFinance
+  ~ author : dluobida
+  ~ class : activity_create_income.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/layout/activity_create_income.xml
+  ~ currentModifyTime : 2019-12-08 22:12:09
+  ~ lastModifyTime : 2019-12-08 22:12:08
+  ~ Copyright (c) 2019 dluobida .
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/base_toolbar" />
+    <EditText
+        android:id="@+id/et_income_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="0.00" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="分类"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/tv_income_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="食品酒水 > 早午晚餐"
+            android:layout_weight="4"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_dark"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="账户"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/tv_income_account"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="现金(CNY)"
+            android:layout_weight="4"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_dark"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="时间"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/tv_income_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="2019年11月21日 22:12"
+            android:layout_weight="4"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_dark"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="备注"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/et_income_remark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="..."
+            android:layout_weight="4"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_income_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保存"/>
+
+</LinearLayout>

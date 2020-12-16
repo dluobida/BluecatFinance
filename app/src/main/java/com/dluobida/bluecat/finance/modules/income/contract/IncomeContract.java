@@ -12,13 +12,22 @@ package com.dluobida.bluecat.finance.modules.income.contract;
 
 import com.dluobida.bluecat.finance.base.presenter.IPresenter;
 import com.dluobida.bluecat.finance.base.view.IView;
+import com.dluobida.bluecat.finance.core.db.table.IncomeData;
+import com.dluobida.bluecat.finance.modules.income.bean.IncomeListData;
+
+import java.util.List;
 
 public interface IncomeContract {
     interface View extends IView {
+        void showIncomeListData(IncomeListData incomeListData, boolean isRefresh);
 
     }
 
     interface Presenter extends IPresenter<View> {
+        List<IncomeData> queryAllIncomeData();
+        void getIncomeListData(boolean isShowStatusView);
+        void refreshLayout(boolean isShowStatusView);
+        void loadMore();
 
     }
 }

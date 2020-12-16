@@ -1,14 +1,14 @@
 /*
- * project ：JunjieFinance
+ * project ：BluecatFinance
  * author : dluobida
- * class : CreateExpandActivity.java
- * package : com.dluobida.junjiefinance.modules.expand.ui.activity.CreateExpandActivity
- * currentModifyTime : 2019-12-08 16:08:46
- * lastModifyTime : 2019-12-08 16:08:45
- * Copyright (c) 2019 dluobida .
+ * class : CreateIncomeActivity.java
+ * package : com.dluobida.bluecat.finance.modules.income.ui.activity.CreateIncomeActivity
+ * currentModifyTime : 2020-12-16 21:24:47
+ * lastModifyTime : 2020-12-16 21:24:46
+ * Copyright (c) 2020 dluobida .
  */
 
-package com.dluobida.bluecat.finance.modules.expand.ui.activity;
+package com.dluobida.bluecat.finance.modules.income.ui.activity;
 
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
@@ -27,11 +27,11 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.activity.BaseActivity;
-import com.dluobida.bluecat.finance.core.db.table.AccountData;
-import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 import com.dluobida.bluecat.finance.core.bean.CatagroyBean;
-import com.dluobida.bluecat.finance.modules.expand.contract.CreateExpandContract;
-import com.dluobida.bluecat.finance.modules.expand.presenter.CreateExpandPresenter;
+import com.dluobida.bluecat.finance.core.db.table.AccountData;
+import com.dluobida.bluecat.finance.core.db.table.IncomeData;
+import com.dluobida.bluecat.finance.modules.income.contract.CreateIncomeContract;
+import com.dluobida.bluecat.finance.modules.income.presenter.CreateIncomePresenter;
 import com.dluobida.bluecat.finance.utils.AssetsUtils;
 import com.dluobida.bluecat.finance.utils.DateUtils;
 import com.dluobida.bluecat.finance.utils.LogUtils;
@@ -46,27 +46,27 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> implements CreateExpandContract.View {
+public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> implements CreateIncomeContract.View {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.toolbar_title)
     TextView mTitle;
-    @BindView(R.id.btn_expand_save)
+    @BindView(R.id.btn_income_save)
     Button btnSave;
-    @BindView(R.id.et_expand_money)
-    EditText etExpandMoney;
-    @BindView(R.id.tv_expand_type)
-    TextView tvExpandType;
-    @BindView(R.id.tv_expand_account)
-    TextView tvExpandAccount;
-    @BindView(R.id.tv_expand_time)
-    TextView tvExpandTime;
-    @BindView(R.id.et_expand_remark)
-    EditText etExpandRemark;
+    @BindView(R.id.et_income_money)
+    EditText etIncomeMoney;
+    @BindView(R.id.tv_income_type)
+    TextView tvIncomeType;
+    @BindView(R.id.tv_income_account)
+    TextView tvIncomeAccount;
+    @BindView(R.id.tv_income_time)
+    TextView tvIncomeTime;
+    @BindView(R.id.et_income_remark)
+    EditText etIncomeRemark;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_create_expand;
+        return R.layout.activity_create_income;
     }
 
     @Override
@@ -80,44 +80,44 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null){
             actionBar.setDisplayShowTitleEnabled(false);
-            mTitle.setText("创建支出");
+            mTitle.setText("创建收入");
         }
 
     }
 
-    @OnClick({R.id.btn_expand_save, R.id.tv_expand_type, R.id.tv_expand_time,R.id.tv_expand_account})
+    @OnClick({R.id.btn_income_save, R.id.tv_income_type, R.id.tv_income_time,R.id.tv_income_account})
     public void OnViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.btn_expand_save:
-                ToastUtils.showToast(CreateExpandActivity.this, "点击了保存");
-                ExpandData expandData = getExpandData();
-                mPresenter.saveExpandData(expandData);
-                List<ExpandData> datas = mPresenter.queryAllExpandData();
-                Log.i("dengjj", "expandData=" + datas.toString());
+            case R.id.btn_income_save:
+                ToastUtils.showToast(CreateIncomeActivity.this, "点击了保存");
+                IncomeData incomeData = getIncomeData();
+                mPresenter.saveIncomeData(incomeData);
+                List<IncomeData> datas = mPresenter.queryAllIncomeData();
+                Log.i("dengjj", "incomeData=" + datas.toString());
                 finish();
                 break;
-            case R.id.tv_expand_type:
-                chooseExpandType();
+            case R.id.tv_income_type:
+                chooseIncomeType();
                 break;
-            case R.id.tv_expand_account:
-                chooseExpandaccount();
+            case R.id.tv_income_account:
+                chooseIncomeaccount();
                 break;
-            case R.id.tv_expand_time:
-                Log.i("dengjj", "click expand time");
-                chooseExpandTime();
+            case R.id.tv_income_time:
+                Log.i("dengjj", "click income time");
+                chooseIncomeTime();
                 break;
         }
 
     }
 
-    private void chooseExpandaccount() {
+    private void chooseIncomeaccount() {
         List<String> options1Items = getAccountList();
-        OptionsPickerView pvOptions = new OptionsPickerBuilder(CreateExpandActivity.this, new OnOptionsSelectListener() {
+        OptionsPickerView pvOptions = new OptionsPickerBuilder(CreateIncomeActivity.this, new OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
                 String tx = options1Items.get(options1);
-                tvExpandAccount.setText(tx);
+                tvIncomeAccount.setText(tx);
             }
         })
                 .setTitleText("账户选择")
@@ -148,24 +148,24 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         return accountList;
     }
 
-    private ExpandData getExpandData() {
-        ExpandData expandData = new ExpandData();
-        String expandMoney = etExpandMoney.getText().toString().trim();
-        String catagroy = tvExpandType.getText().toString();
-        String account = tvExpandAccount.getText().toString();
-        String remark = etExpandRemark.getText().toString().trim();
-        String date = tvExpandTime.getText().toString();
+    private IncomeData getIncomeData() {
+        IncomeData incomeData = new IncomeData();
+        String incomeMoney = etIncomeMoney.getText().toString().trim();
+        String catagroy = tvIncomeType.getText().toString();
+        String account = tvIncomeAccount.getText().toString();
+        String remark = etIncomeRemark.getText().toString().trim();
+        String date = tvIncomeTime.getText().toString();
         //将date转换为时间戳
         String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD_HH_MM);
-        expandData.setMoney(expandMoney);
-        expandData.setCatagroy(catagroy);
-        expandData.setAccount(account);
-        expandData.setDate(time);
-        expandData.setRemark(remark);
-        return expandData;
+        incomeData.setMoney(incomeMoney);
+        incomeData.setCatagroy(catagroy);
+        incomeData.setAccount(account);
+        incomeData.setDate(time);
+        incomeData.setRemark(remark);
+        return incomeData;
     }
 
-    private void chooseExpandType() {
+    private void chooseIncomeType() {
         List<CatagroyBean> catagroys = getCatagroy();
         List<String> options1Items = new ArrayList<>();
         List<List<String>> options2Items = new ArrayList<>();
@@ -173,12 +173,12 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
             options1Items.add(catagroys.get(i).getName());
             options2Items.add(catagroys.get(i).getSecondType());
         }
-        OptionsPickerView pvOptions = new OptionsPickerBuilder(CreateExpandActivity.this, new OnOptionsSelectListener() {
-            @Override 
+        OptionsPickerView pvOptions = new OptionsPickerBuilder(CreateIncomeActivity.this, new OnOptionsSelectListener() {
+            @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
                 String tx = options1Items.get(options1) + " > " + options2Items.get(options1).get(options2);
-                tvExpandType.setText(tx);
+                tvIncomeType.setText(tx);
             }
         })
                 .setTitleText("分类选择")
@@ -199,12 +199,12 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         pvOptions.show();
     }
 
-    private void chooseExpandTime() {
+    private void chooseIncomeTime() {
         //时间选择器
-        TimePickerView pvTime = new TimePickerBuilder(CreateExpandActivity.this, new OnTimeSelectListener() {
+        TimePickerView pvTime = new TimePickerBuilder(CreateIncomeActivity.this, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
-                tvExpandTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD_HH_MM));
+                tvIncomeTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD_HH_MM));
             }
         }).setType(new boolean[]{true, true, true, true, true, false}).build();
         pvTime.show();

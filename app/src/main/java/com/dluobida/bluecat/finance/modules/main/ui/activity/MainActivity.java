@@ -35,6 +35,7 @@ import com.dluobida.bluecat.finance.modules.assets.ui.fragment.AssetsFragment;
 import com.dluobida.bluecat.finance.modules.chart.ui.fragment.ChartFragment;
 import com.dluobida.bluecat.finance.modules.expand.ui.activity.CreateExpandActivity;
 import com.dluobida.bluecat.finance.modules.expand.ui.fragment.ExpandFragment;
+import com.dluobida.bluecat.finance.modules.income.ui.activity.CreateIncomeActivity;
 import com.dluobida.bluecat.finance.modules.income.ui.fragment.IncomeFragment;
 import com.dluobida.bluecat.finance.modules.main.contract.MainContract;
 import com.dluobida.bluecat.finance.modules.main.presenter.MainPresenter;
@@ -236,6 +237,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 startActivity(createExpandIntent);
                 break;
             case Constants.TYPE_INCOME:
+                Intent createIncomeIntent = new Intent(MainActivity.this, CreateIncomeActivity.class);
+                startActivity(createIncomeIntent);
                 break;
             case Constants.TYPE_TRANSFER:
                 break;
