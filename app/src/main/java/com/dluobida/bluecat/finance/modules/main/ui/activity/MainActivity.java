@@ -39,6 +39,7 @@ import com.dluobida.bluecat.finance.modules.income.ui.activity.CreateIncomeActiv
 import com.dluobida.bluecat.finance.modules.income.ui.fragment.IncomeFragment;
 import com.dluobida.bluecat.finance.modules.main.contract.MainContract;
 import com.dluobida.bluecat.finance.modules.main.presenter.MainPresenter;
+import com.dluobida.bluecat.finance.modules.transfer.ui.activity.CreateTransferActivity;
 import com.dluobida.bluecat.finance.modules.transfer.ui.fragment.TransferFragment;
 
 import javax.inject.Inject;
@@ -241,6 +242,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 startActivity(createIncomeIntent);
                 break;
             case Constants.TYPE_TRANSFER:
+                Intent createTransferIntent = new Intent(MainActivity.this, CreateTransferActivity.class);
+                startActivity(createTransferIntent);
                 break;
             case Constants.TYPE_ASSETS:
                 Intent createAccountIntent = new Intent(MainActivity.this, CreateAccountActivity.class);

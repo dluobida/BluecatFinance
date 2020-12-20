@@ -30,6 +30,7 @@
         <activity android:name="com.dluobida.bluecat.finance.modules.assets.ui.activity.CreateAccountActivity"></activity>
         <activity android:name="com.dluobida.bluecat.finance.modules.assets.ui.activity.AccountDetailActivity"></activity>
         <activity android:name="com.dluobida.bluecat.finance.modules.income.ui.activity.CreateIncomeActivity"></activity>
+        <activity android:name="com.dluobida.bluecat.finance.modules.transfer.ui.activity.CreateTransferActivity"></activity>
         <activity android:name="com.dluobida.bluecat.finance.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

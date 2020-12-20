@@ -14,6 +14,7 @@ import com.dluobida.bluecat.finance.core.db.DbHelper;
 import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 import com.dluobida.bluecat.finance.core.db.table.IncomeData;
+import com.dluobida.bluecat.finance.core.db.table.TransferData;
 
 import java.util.List;
 
@@ -43,6 +44,16 @@ public class DataManager implements DbHelper {
     @Override
     public List<IncomeData> queryAllIncomeData() {
         return mDbHelper.queryAllIncomeData();
+    }
+
+    @Override
+    public void saveTransferData(TransferData transferData) {
+        mDbHelper.saveTransferData(transferData);
+    }
+
+    @Override
+    public List<TransferData> queryAllTransferData() {
+        return mDbHelper.queryAllTransferData();
     }
 
     @Override

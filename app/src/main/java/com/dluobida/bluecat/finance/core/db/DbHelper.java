@@ -13,6 +13,7 @@ package com.dluobida.bluecat.finance.core.db;
 import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 import com.dluobida.bluecat.finance.core.db.table.IncomeData;
+import com.dluobida.bluecat.finance.core.db.table.TransferData;
 
 import java.util.List;
 
@@ -40,6 +41,17 @@ public interface DbHelper {
      * @return
      */
     List<IncomeData> queryAllIncomeData();
+    /**
+     * 保存转账数据
+     * @param transferData
+     */
+    void saveTransferData(TransferData transferData);
+
+    /**
+     * 查询所有的转账数据
+     * @return
+     */
+    List<TransferData> queryAllTransferData();
 
     /**
      * 创建新账户

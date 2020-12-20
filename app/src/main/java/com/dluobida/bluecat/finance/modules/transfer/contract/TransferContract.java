@@ -12,13 +12,20 @@ package com.dluobida.bluecat.finance.modules.transfer.contract;
 
 import com.dluobida.bluecat.finance.base.presenter.IPresenter;
 import com.dluobida.bluecat.finance.base.view.IView;
+import com.dluobida.bluecat.finance.core.db.table.TransferData;
+import com.dluobida.bluecat.finance.modules.transfer.bean.TransferListData;
+
+import java.util.List;
 
 public interface TransferContract {
     interface View extends IView {
-
+        void showTransferListData(TransferListData transferListData, boolean isRefresh);
     }
 
     interface Presenter extends IPresenter<View> {
-
+        List<TransferData> queryAllTransferData();
+        void getTransferListData(boolean isShowStatusView);
+        void refreshLayout(boolean isShowStatusView);
+        void loadMore();
     }
 }

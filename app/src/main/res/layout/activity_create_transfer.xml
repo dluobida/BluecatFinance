@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ project ：BluecatFinance
+  ~ author : dluobida
+  ~ class : activity_create_transfer.xml
+  ~ package : E:/workspace/ASProject/BluecatFinance/app/src/main/res/layout/activity_create_transfer.xml
+  ~ currentModifyTime : 2020-12-18 23:00:47
+  ~ lastModifyTime : 2020-12-16 22:37:09
+  ~ Copyright (c) 2020 dluobida .
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/base_toolbar" />
+    <EditText
+        android:id="@+id/et_transfer_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="0.00" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="27dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="出账"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tv_account_out"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="工行"
+            android:layout_weight="4"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_dark"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="入账"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/tv_account_in"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="招行"
+            android:layout_weight="4"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_dark"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="时间"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/tv_transfer_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="2019年11月21日 22:12"
+            android:layout_weight="4"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_dark"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="备注"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/et_transfer_remark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="..."
+            android:layout_weight="4"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_transfer_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保存"/>
+
+</LinearLayout>

@@ -16,6 +16,7 @@ import com.dluobida.bluecat.finance.base.application.BaseApplication;
 import com.dluobida.bluecat.finance.core.constant.Constants;
 import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.db.table.IncomeData;
+import com.dluobida.bluecat.finance.core.db.table.TransferData;
 import com.dluobida.bluecat.finance.core.greendao.DaoMaster;
 import com.dluobida.bluecat.finance.core.greendao.DaoSession;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
@@ -27,15 +28,16 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class DbHelperImpl implements DbHelper{
+public class DbHelperImpl implements DbHelper {
 
     private DaoSession daoSession;
+
     @Inject
-    DbHelperImpl(){
+    DbHelperImpl() {
         initGreenDao();
     }
 
-    private void initGreenDao(){
+    private void initGreenDao() {
         DaoMaster.DevOpenHelper devOpenHelper =
                 new DaoMaster.DevOpenHelper(BaseApplication.getContext(), Constants.DB_NAME);
         SQLiteDatabase database = devOpenHelper.getWritableDatabase();
@@ -66,6 +68,16 @@ public class DbHelperImpl implements DbHelper{
     }
 
     @Override
+    public void saveTransferData(TransferData transferData) {
+        daoSession.getTransferDataDao().insert(transferData);
+    }
+
+    @Override
+    public List<TransferData> queryAllTransferData() {
+        return daoSession.getTransferDataDao().loadAll();
+    }
+
+    @Override
     public void saveAccountData(AccountData accountData) {
         daoSession.getAccountDataDao().insert(accountData);
     }
@@ -81,7 +93,7 @@ public class DbHelperImpl implements DbHelper{
         LogUtils.i("accountData=" + datas.toString());
         AccountData updateAccountData = datas.get(0);
         LogUtils.i("originMoney=" + updateAccountData.getMoney() + " expandMoney=" + money);
-        String updateMoney = MathMoneyUtils.sub(updateAccountData.getMoney(),money);
+        String updateMoney = MathMoneyUtils.sub(updateAccountData.getMoney(), money);
         LogUtils.i("updateMoney=" + updateMoney);
         updateAccountData.setMoney(updateMoney);
         daoSession.getAccountDataDao().update(updateAccountData);

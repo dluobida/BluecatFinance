@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ project ：BluecatFinance
+  ~ author : dluobida
+  ~ class : item_transfer_list.xml
+  ~ package : E:/workspace/ASProject/BluecatFinance/app/src/main/res/layout/item_transfer_list.xml
+  ~ currentModifyTime : 2020-12-20 13:43:29
+  ~ lastModifyTime : 2020-12-16 22:48:22
+  ~ Copyright (c) 2020 dluobida .
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:background="#ffffff"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10sp"
+        android:src="@mipmap/expand"
+        android:layout_marginRight="16dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2019年11月21日"
+                android:textSize="18sp"
+                android:textColor="#000000"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="转出账户:"
+                android:textSize="18sp"
+                android:textColor="#666666"/>
+
+            <TextView
+                android:id="@+id/tv_account_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="工行"
+                android:textSize="18sp"
+                android:textColor="#666666"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="转入账户:"
+                android:textSize="18sp"
+                android:textColor="#666666"/>
+
+            <TextView
+                android:id="@+id/tv_account_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="农行"
+                android:textSize="18sp"
+                android:textColor="#666666"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="备注："
+                android:textSize="18sp"
+                android:textColor="#999999"/>
+
+            <TextView
+                android:id="@+id/tv_remark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="额外备注"
+                android:textSize="18sp"
+                android:textColor="#999999"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:text="8.88"
+        android:textColor="#339933"
+        android:textSize="22sp" />
+
+</LinearLayout>

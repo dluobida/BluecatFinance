@@ -9,13 +9,38 @@
   ~ Copyright (c) 2019 dluobida .
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<com.classic.common.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/custom_multiple_status_view"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="转账"
-        android:gravity="center"/>
+        app:srlAccentColor="?attr/colorPrimary"
+        app:srlEnablePreviewInEditMode="true"
+        app:srlPrimaryColor="?attr/colorPrimary">
 
-</LinearLayout>
+
+        <com.scwang.smartrefresh.header.PhoenixHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_transfer_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <com.scwang.smartrefresh.header.TaurusHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+</com.classic.common.MultipleStatusView>

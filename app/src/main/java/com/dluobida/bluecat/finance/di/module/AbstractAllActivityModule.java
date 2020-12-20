@@ -16,6 +16,7 @@ import com.dluobida.bluecat.finance.modules.assets.ui.activity.CreateAccountActi
 import com.dluobida.bluecat.finance.modules.expand.ui.activity.CreateExpandActivity;
 import com.dluobida.bluecat.finance.modules.income.ui.activity.CreateIncomeActivity;
 import com.dluobida.bluecat.finance.modules.main.ui.activity.MainActivity;
+import com.dluobida.bluecat.finance.modules.transfer.ui.activity.CreateTransferActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -37,4 +38,7 @@ public abstract class AbstractAllActivityModule {
 
     @ContributesAndroidInjector(modules = CreateIncomeActivityModule.class)
     abstract CreateIncomeActivity contributesCreateIncomeActivityInjector();
+
+    @ContributesAndroidInjector(modules = CreateTransferActivityModule.class)
+    abstract CreateTransferActivity contributesCreateTransferActivityInjector();
 }
