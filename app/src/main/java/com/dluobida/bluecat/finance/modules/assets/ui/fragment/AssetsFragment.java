@@ -21,6 +21,7 @@ import com.dluobida.bluecat.finance.modules.assets.contract.AssetsContract;
 import com.dluobida.bluecat.finance.modules.assets.presenter.AssetsPresenter;
 import com.dluobida.bluecat.finance.utils.LogUtils;
 import com.dluobida.bluecat.finance.utils.ToastUtils;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 import java.util.List;
@@ -32,8 +33,8 @@ public class AssetsFragment extends BaseFragment<AssetsPresenter> implements  As
 
     @BindView(R.id.rv_assets_list)
     RecyclerView rvAssetsList;
-    @BindView(R.id.refreshLayout)
-    RefreshLayout mRefreshLayout;
+    @BindView(R.id.smart_refresh_layout)
+    SmartRefreshLayout mRefreshLayout;
 
     public static AssetsFragment getInstance(){
         AssetsFragment instance = new AssetsFragment();

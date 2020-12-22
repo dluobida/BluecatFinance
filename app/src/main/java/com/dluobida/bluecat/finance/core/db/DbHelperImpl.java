@@ -14,6 +14,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.dluobida.bluecat.finance.base.application.BaseApplication;
 import com.dluobida.bluecat.finance.core.constant.Constants;
+import com.dluobida.bluecat.finance.core.constant.MathMoneyEnum;
 import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.db.table.IncomeData;
 import com.dluobida.bluecat.finance.core.db.table.TransferData;
@@ -88,12 +89,17 @@ public class DbHelperImpl implements DbHelper {
     }
 
     @Override
-    public void updateAccountData(String accountName, String money) {
+    public void updateAccountData(String accountName, String money, MathMoneyEnum type) {
         List<AccountData> datas = daoSession.getAccountDataDao().queryRaw("where name=?", accountName);
         LogUtils.i("accountData=" + datas.toString());
         AccountData updateAccountData = datas.get(0);
         LogUtils.i("originMoney=" + updateAccountData.getMoney() + " expandMoney=" + money);
-        String updateMoney = MathMoneyUtils.sub(updateAccountData.getMoney(), money);
+        String updateMoney = "";
+        if(type == MathMoneyEnum.ADD){
+            updateMoney = MathMoneyUtils.add(updateAccountData.getMoney(), money);
+        }else {
+            updateMoney = MathMoneyUtils.sub(updateAccountData.getMoney(), money);
+        }
         LogUtils.i("updateMoney=" + updateMoney);
         updateAccountData.setMoney(updateMoney);
         daoSession.getAccountDataDao().update(updateAccountData);

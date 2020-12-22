@@ -10,6 +10,7 @@
 
 package com.dluobida.bluecat.finance.core.db;
 
+import com.dluobida.bluecat.finance.core.constant.MathMoneyEnum;
 import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 import com.dluobida.bluecat.finance.core.db.table.IncomeData;
@@ -70,5 +71,5 @@ public interface DbHelper {
      * @param accountName
      * @param money
      */
-    void updateAccountData(String accountName,String money);
+    void updateAccountData(String accountName,String money, MathMoneyEnum type);
 }

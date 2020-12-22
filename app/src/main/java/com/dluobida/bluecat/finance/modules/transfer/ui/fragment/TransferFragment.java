@@ -46,6 +46,13 @@ public class TransferFragment extends BaseFragment<TransferPresenter> implements
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.refreshLayout(false);
+
+    }
+
+    @Override
     protected void initView() {
         initRecyclerView();
 

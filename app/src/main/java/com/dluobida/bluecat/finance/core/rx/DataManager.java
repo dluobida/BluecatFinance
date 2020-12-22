@@ -10,6 +10,7 @@
 
 package com.dluobida.bluecat.finance.core.rx;
 
+import com.dluobida.bluecat.finance.core.constant.MathMoneyEnum;
 import com.dluobida.bluecat.finance.core.db.DbHelper;
 import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
@@ -67,7 +68,7 @@ public class DataManager implements DbHelper {
     }
 
     @Override
-    public void updateAccountData(String accountName, String money) {
-        mDbHelper.updateAccountData(accountName,money);
+    public void updateAccountData(String accountName, String money, MathMoneyEnum type) {
+        mDbHelper.updateAccountData(accountName,money,type);
     }
 }

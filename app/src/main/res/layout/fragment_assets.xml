@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ project ：JunjieFinance
   ~ author : dluobida
-  ~ class : fragment_income.xml
-  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/layout/fragment_income.xml
-  ~ currentModifyTime : 2019-11-17 21:17:28
-  ~ lastModifyTime : 2019-11-17 21:17:28
+  ~ class : fragment_expand.xml
+  ~ package : E:/workspace/ASProject/JunjieFinance/app/src/main/res/layout/fragment_expand.xml
+  ~ currentModifyTime : 2019-11-16 23:33:12
+  ~ lastModifyTime : 2019-11-16 23:33:11
   ~ Copyright (c) 2019 dluobida .
   -->
 
 <com.classic.common.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/custom_multiple_status_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/refreshLayout"
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#444444"
-        app:srlAccentColor="@android:color/white"
+        app:srlAccentColor="?attr/colorPrimary"
         app:srlEnablePreviewInEditMode="true"
-        app:srlPrimaryColor="#444444">
+        app:srlPrimaryColor="?attr/colorPrimary">
 
-        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+
+        <com.scwang.smartrefresh.header.PhoenixHeader
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_assets_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
-        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+
+        <com.scwang.smartrefresh.header.TaurusHeader
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
 
 </com.classic.common.MultipleStatusView>

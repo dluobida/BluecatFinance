@@ -55,6 +55,6 @@ public class ExpandPresenter extends BasePresenter<ExpandContract.View> implemen
     public void loadMore() {
         isRefresh = false;
         currentPage++;
-        getExpandListData(false);
+//        getExpandListData(false);
     }
 }

@@ -11,9 +11,12 @@
 package com.dluobida.bluecat.finance.modules.expand.presenter;
 
 import com.dluobida.bluecat.finance.base.presenter.BasePresenter;
+import com.dluobida.bluecat.finance.core.constant.MathMoneyEnum;
 import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 import com.dluobida.bluecat.finance.modules.expand.contract.CreateExpandContract;
+import com.dluobida.bluecat.finance.utils.LogUtils;
+import com.dluobida.bluecat.finance.utils.MathMoneyUtils;
 
 import java.util.List;
 
@@ -32,7 +35,7 @@ public class CreateExpandPresenter extends BasePresenter<CreateExpandContract.Vi
         //1.在支出表中增加一行
         mDataManager.saveExpandData(expandData);
         //在账户表中更新相关的金额
-        mDataManager.updateAccountData(expandData.getAccount(),expandData.getMoney());
+        mDataManager.updateAccountData(expandData.getAccount(),expandData.getMoney(), MathMoneyEnum.SUB);
 
     }
 

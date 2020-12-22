@@ -53,7 +53,7 @@ public class TransferPresenter extends BasePresenter<TransferContract.View> impl
     public void loadMore() {
         isRefresh = false;
         currentPage++;
-        getTransferListData(false);
+//        getTransferListData(false);
 
     }
 }

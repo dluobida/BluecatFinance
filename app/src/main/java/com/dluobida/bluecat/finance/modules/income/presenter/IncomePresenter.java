@@ -52,7 +52,7 @@ public class IncomePresenter extends BasePresenter<IncomeContract.View> implemen
     public void loadMore() {
         isRefresh = false;
         currentPage++;
-        getIncomeListData(false);
+//        getIncomeListData(false);
 
     }
 }
