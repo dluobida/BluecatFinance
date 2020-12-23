@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateUtils {
-    public static final String YYYY_MM_DD_HH_MM = "yyyy年MM月dd日 HH:mm";
+    public static final String YYYY_MM_DD = "yyyy年MM月dd日";
     /**
      * 标准日期格式转换为时间戳
      * @param dateStr

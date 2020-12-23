@@ -12,4 +12,5 @@ package com.dluobida.bluecat.finance.base.callback;
 
 public interface PickerViewCallback {
     void onOptionsSelect(String selectName);
+    void onTimeSelect(String time);
 }

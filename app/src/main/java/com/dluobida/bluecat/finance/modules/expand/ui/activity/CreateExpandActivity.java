@@ -99,7 +99,17 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
                 finish();
                 break;
             case R.id.tv_expand_type:
-                chooseExpandType();
+//                chooseExpandType();
+                PickerViewUtils.showChooseList(CreateExpandActivity.this, "支出类型", getExpandList(), new PickerViewCallback() {
+                    @Override
+                    public void onOptionsSelect(String selectName) {
+                        tvExpandType.setText(selectName);
+                    }
+                    @Override
+                    public void onTimeSelect(String time) {
+
+                    }
+                });
                 break;
             case R.id.tv_expand_account:
 //                chooseExpandaccount();
@@ -108,11 +118,25 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
                     public void onOptionsSelect(String selectName) {
                         tvExpandAccount.setText(selectName);
                     }
+                    @Override
+                    public void onTimeSelect(String time) {
+
+                    }
                 });
                 break;
             case R.id.tv_expand_time:
                 Log.i("dengjj", "click expand time");
-                chooseExpandTime();
+                PickerViewUtils.showTimeChoose(CreateExpandActivity.this, new PickerViewCallback() {
+                    @Override
+                    public void onOptionsSelect(String selectName) {
+
+                    }
+
+                    @Override
+                    public void onTimeSelect(String time) {
+                        tvExpandTime.setText(time);
+                    }
+                });
                 break;
         }
 
@@ -128,6 +152,13 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         return accountList;
     }
 
+    private List<String> getExpandList(){
+        String expandType = AssetsUtils.getJsonFromAsset(this,"expandType.json");
+        Gson gson = new Gson();
+        List<String> datas = gson.fromJson(expandType, new TypeToken<List<String>>(){}.getType());
+        return datas;
+    }
+
     private ExpandData getExpandData() {
         ExpandData expandData = new ExpandData();
         String expandMoney = etExpandMoney.getText().toString().trim();
@@ -136,7 +167,7 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         String remark = etExpandRemark.getText().toString().trim();
         String date = tvExpandTime.getText().toString();
         //将date转换为时间戳
-        String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD_HH_MM);
+        String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD);
         expandData.setMoney(expandMoney);
         expandData.setCatagroy(catagroy);
         expandData.setAccount(account);
@@ -184,7 +215,7 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         TimePickerView pvTime = new TimePickerBuilder(CreateExpandActivity.this, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
-                tvExpandTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD_HH_MM));
+                tvExpandTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD));
             }
         }).setType(new boolean[]{true, true, true, true, true, false}).build();
         pvTime.show();

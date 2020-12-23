@@ -29,7 +29,7 @@ public class QuickTransferListAdapter extends BaseQuickAdapter<TransferData, Bas
     protected void convert(BaseViewHolder helper, TransferData item) {
         helper.setText(R.id.tv_money,item.getMoney());
         helper.setText(R.id.tv_account_out,item.getAccountOut());
-        helper.setText(R.id.tv_date, DateUtils.timeToDate(item.getDate(),DateUtils.YYYY_MM_DD_HH_MM));
+        helper.setText(R.id.tv_date, DateUtils.timeToDate(item.getDate(),DateUtils.YYYY_MM_DD));
         helper.setText(R.id.tv_account_in,item.getAccountIn());
         helper.setText(R.id.tv_remark,item.getRemark());
     }

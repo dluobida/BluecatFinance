@@ -15,11 +15,15 @@ import android.graphics.Color;
 import android.view.View;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.dluobida.bluecat.finance.base.callback.PickerViewCallback;
 import com.dluobida.bluecat.finance.modules.expand.ui.activity.CreateExpandActivity;
 
+import java.util.Date;
 import java.util.List;
 
 public class PickerViewUtils {
@@ -49,5 +53,15 @@ public class PickerViewUtils {
         pvOptions.setPicker(options1Items);
         pvOptions.show();
 
+    }
+
+    public static void showTimeChoose(Context context,PickerViewCallback callback){
+        TimePickerView pvTime = new TimePickerBuilder(context, new OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {
+                callback.onTimeSelect(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD));
+            }
+        }).setType(new boolean[]{true, true, true, false, false, false}).build();
+        pvTime.show();
     }
 }

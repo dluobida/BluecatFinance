@@ -156,7 +156,7 @@ public class CreateTransferActivity extends BaseActivity<CreateTransferPresenter
         String remark = etTransferRemark.getText().toString().trim();
         String date = tvTransferTime.getText().toString();
         //将date转换为时间戳
-        String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD_HH_MM);
+        String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD);
         transferData.setMoney(transferMoney);
         transferData.setAccountIn(accountIn);
         transferData.setAccountOut(accountOut);
@@ -171,7 +171,7 @@ public class CreateTransferActivity extends BaseActivity<CreateTransferPresenter
         TimePickerView pvTime = new TimePickerBuilder(CreateTransferActivity.this, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
-                tvTransferTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD_HH_MM));
+                tvTransferTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD));
             }
         }).setType(new boolean[]{true, true, true, true, true, false}).build();
         pvTime.show();

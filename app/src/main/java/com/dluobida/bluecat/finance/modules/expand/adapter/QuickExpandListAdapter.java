@@ -29,7 +29,7 @@ public class QuickExpandListAdapter extends BaseQuickAdapter<ExpandData, BaseVie
     protected void convert(BaseViewHolder helper, ExpandData item) {
         helper.setText(R.id.tv_money,item.getMoney());
         helper.setText(R.id.tv_catagroy,item.getCatagroy());
-        helper.setText(R.id.tv_date, DateUtils.timeToDate(item.getDate(),DateUtils.YYYY_MM_DD_HH_MM));
+        helper.setText(R.id.tv_date, DateUtils.timeToDate(item.getDate(),DateUtils.YYYY_MM_DD));
         helper.setText(R.id.tv_account,item.getAccount());
         helper.setText(R.id.tv_remark,item.getRemark());
     }

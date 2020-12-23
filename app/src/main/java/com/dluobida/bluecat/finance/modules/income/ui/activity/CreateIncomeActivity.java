@@ -156,7 +156,7 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
         String remark = etIncomeRemark.getText().toString().trim();
         String date = tvIncomeTime.getText().toString();
         //将date转换为时间戳
-        String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD_HH_MM);
+        String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD);
         incomeData.setMoney(incomeMoney);
         incomeData.setCatagroy(catagroy);
         incomeData.setAccount(account);
@@ -204,7 +204,7 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
         TimePickerView pvTime = new TimePickerBuilder(CreateIncomeActivity.this, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
-                tvIncomeTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD_HH_MM));
+                tvIncomeTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD));
             }
         }).setType(new boolean[]{true, true, true, true, true, false}).build();
         pvTime.show();
