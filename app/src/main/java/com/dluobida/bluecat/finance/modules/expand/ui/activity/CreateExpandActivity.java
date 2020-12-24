@@ -10,6 +10,7 @@
 
 package com.dluobida.bluecat.finance.modules.expand.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
@@ -73,6 +74,17 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
 
     @Override
     protected void initView() {
+        Intent intent = getIntent();
+        String type = intent.getStringExtra("type");
+        if("edit".equals(type)){
+            String data = intent.getStringExtra("data");
+            ExpandData expandData = new Gson().fromJson(data,ExpandData.class);
+            etExpandMoney.setText(expandData.getMoney());
+            tvExpandType.setText(expandData.getCatagroy());
+            tvExpandAccount.setText(expandData.getAccount());
+            etExpandRemark.setText(expandData.getRemark());
+            tvExpandTime.setText(DateUtils.timeToDate(expandData.getDate(),DateUtils.YYYY_MM_DD));
+        }
 
     }
 
@@ -99,28 +111,18 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
                 finish();
                 break;
             case R.id.tv_expand_type:
-//                chooseExpandType();
                 PickerViewUtils.showChooseList(CreateExpandActivity.this, "支出类型", getExpandList(), new PickerViewCallback() {
                     @Override
-                    public void onOptionsSelect(String selectName) {
-                        tvExpandType.setText(selectName);
-                    }
-                    @Override
-                    public void onTimeSelect(String time) {
-
+                    public void onChoosed(String chooseName) {
+                        tvExpandType.setText(chooseName);
                     }
                 });
                 break;
             case R.id.tv_expand_account:
-//                chooseExpandaccount();
                 PickerViewUtils.showChooseList(CreateExpandActivity.this, "账户选择", getAccountList(), new PickerViewCallback() {
                     @Override
-                    public void onOptionsSelect(String selectName) {
-                        tvExpandAccount.setText(selectName);
-                    }
-                    @Override
-                    public void onTimeSelect(String time) {
-
+                    public void onChoosed(String chooseName) {
+                        tvExpandAccount.setText(chooseName);
                     }
                 });
                 break;
@@ -128,13 +130,8 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
                 Log.i("dengjj", "click expand time");
                 PickerViewUtils.showTimeChoose(CreateExpandActivity.this, new PickerViewCallback() {
                     @Override
-                    public void onOptionsSelect(String selectName) {
-
-                    }
-
-                    @Override
-                    public void onTimeSelect(String time) {
-                        tvExpandTime.setText(time);
+                    public void onChoosed(String chooseName) {
+                        tvExpandTime.setText(chooseName);
                     }
                 });
                 break;
@@ -166,7 +163,7 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         String account = tvExpandAccount.getText().toString();
         String remark = etExpandRemark.getText().toString().trim();
         String date = tvExpandTime.getText().toString();
-        //将date转换为时间戳
+        //
         String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD);
         expandData.setMoney(expandMoney);
         expandData.setCatagroy(catagroy);
@@ -174,58 +171,5 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         expandData.setDate(time);
         expandData.setRemark(remark);
         return expandData;
-    }
-
-    private void chooseExpandType() {
-        List<CatagroyBean> catagroys = getCatagroy();
-        List<String> options1Items = new ArrayList<>();
-        List<List<String>> options2Items = new ArrayList<>();
-        for(int i=0;i<catagroys.size();i++){
-            options1Items.add(catagroys.get(i).getName());
-            options2Items.add(catagroys.get(i).getSecondType());
-        }
-        OptionsPickerView pvOptions = new OptionsPickerBuilder(CreateExpandActivity.this, new OnOptionsSelectListener() {
-            @Override 
-            public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                //返回的分别是三个级别的选中位置
-                String tx = options1Items.get(options1) + " > " + options2Items.get(options1).get(options2);
-                tvExpandType.setText(tx);
-            }
-        })
-                .setTitleText("分类选择")
-                .setContentTextSize(20)//设置滚轮文字大小
-                .setDividerColor(Color.LTGRAY)//设置分割线的颜色
-                .setSelectOptions(0, 1)//默认选中项
-                .setBgColor(Color.BLACK)
-                .setTitleBgColor(Color.DKGRAY)
-                .setTitleColor(Color.LTGRAY)
-                .setCancelColor(Color.YELLOW)
-                .setSubmitColor(Color.YELLOW)
-                .setTextColorCenter(Color.LTGRAY)
-                .isRestoreItem(true)//切换时是否还原，设置默认选中第一项。
-                .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
-                .setOutSideColor(0x00000000) //设置外部遮罩颜色
-                .build();
-        pvOptions.setPicker(options1Items, options2Items);
-        pvOptions.show();
-    }
-
-    private void chooseExpandTime() {
-        //时间选择器
-        TimePickerView pvTime = new TimePickerBuilder(CreateExpandActivity.this, new OnTimeSelectListener() {
-            @Override
-            public void onTimeSelect(Date date, View v) {
-                tvExpandTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD));
-            }
-        }).setType(new boolean[]{true, true, true, true, true, false}).build();
-        pvTime.show();
-    }
-
-    private List<CatagroyBean> getCatagroy(){
-        String catagroy = AssetsUtils.getJsonFromAsset(this,"catagroy.json");
-        Gson gson = new Gson();
-        List<CatagroyBean> datas = gson.fromJson(catagroy, new TypeToken<List<CatagroyBean>>(){}.getType());
-        LogUtils.i("catagroy=" + datas.toString());
-        return datas;
     }
 }

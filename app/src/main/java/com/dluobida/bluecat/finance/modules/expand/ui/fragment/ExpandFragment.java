@@ -10,10 +10,13 @@
 
 package com.dluobida.bluecat.finance.modules.expand.ui.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.LinearLayout;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.fragment.BaseFragment;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
@@ -21,7 +24,9 @@ import com.dluobida.bluecat.finance.modules.expand.adapter.QuickExpandListAdapte
 import com.dluobida.bluecat.finance.modules.expand.bean.ExpandListData;
 import com.dluobida.bluecat.finance.modules.expand.contract.ExpandContract;
 import com.dluobida.bluecat.finance.modules.expand.presenter.ExpandPresenter;
+import com.dluobida.bluecat.finance.modules.expand.ui.activity.CreateExpandActivity;
 import com.dluobida.bluecat.finance.utils.LogUtils;
+import com.google.gson.Gson;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.ArrayList;
@@ -63,6 +68,12 @@ public class ExpandFragment extends BaseFragment<ExpandPresenter> implements Exp
     private void initRecyclerView(){
         List<ExpandData> expandDataList = new ArrayList<>();
         mAdapter = new QuickExpandListAdapter(R.layout.item_expand_list,expandDataList);
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                jumpToEdit(expandDataList.get(position));
+            }
+        });
         LinearLayoutManager layoutManager = new LinearLayoutManager(_mActivity);
         rvExpandList.setLayoutManager(layoutManager);
         rvExpandList.setHasFixedSize(true);
@@ -72,6 +83,17 @@ public class ExpandFragment extends BaseFragment<ExpandPresenter> implements Exp
         rvExpandList.setAdapter(mAdapter);
 
     }
+
+    private void jumpToEdit(ExpandData expandData){
+        //TODO 实体类转json
+        Intent intent = new Intent(getActivity(), CreateExpandActivity.class);
+        intent.putExtra("type","edit");
+        intent.putExtra("data",new Gson().toJson(expandData));
+        startActivity(intent);
+
+    }
+
+
 
 
     private void initRefreshLayout() {

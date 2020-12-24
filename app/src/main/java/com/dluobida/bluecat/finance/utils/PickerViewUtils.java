@@ -33,22 +33,22 @@ public class PickerViewUtils {
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
                 String tx = options1Items.get(options1);
-                callback.onOptionsSelect(tx);
+                callback.onChoosed(tx);
             }
         })
                 .setTitleText(title)
-                .setContentTextSize(20)//设置滚轮文字大小
-                .setDividerColor(Color.LTGRAY)//设置分割线的颜色
-                .setSelectOptions(0, 1)//默认选中项
-                .setBgColor(Color.BLACK)
-                .setTitleBgColor(Color.DKGRAY)
-                .setTitleColor(Color.LTGRAY)
-                .setCancelColor(Color.YELLOW)
-                .setSubmitColor(Color.YELLOW)
-                .setTextColorCenter(Color.LTGRAY)
-                .isRestoreItem(true)//切换时是否还原，设置默认选中第一项。
-                .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
-                .setOutSideColor(0x00000000) //设置外部遮罩颜色
+//                .setContentTextSize(20)//设置滚轮文字大小
+//                .setDividerColor(Color.LTGRAY)//设置分割线的颜色
+//                .setSelectOptions(0, 1)//默认选中项
+//                .setBgColor(Color.GRAY)
+//                .setTitleBgColor(Color.DKGRAY)
+//                .setTitleColor(Color.LTGRAY)
+//                .setCancelColor(Color.YELLOW)
+//                .setSubmitColor(Color.YELLOW)
+//                .setTextColorCenter(Color.LTGRAY)
+//                .isRestoreItem(true)//切换时是否还原，设置默认选中第一项。
+//                .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
+//                .setOutSideColor(0x00000000) //设置外部遮罩颜色
                 .build();
         pvOptions.setPicker(options1Items);
         pvOptions.show();
@@ -59,7 +59,7 @@ public class PickerViewUtils {
         TimePickerView pvTime = new TimePickerBuilder(context, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
-                callback.onTimeSelect(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD));
+                callback.onChoosed(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD));
             }
         }).setType(new boolean[]{true, true, true, false, false, false}).build();
         pvTime.show();

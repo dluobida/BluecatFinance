@@ -27,6 +27,7 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.activity.BaseActivity;
+import com.dluobida.bluecat.finance.base.callback.PickerViewCallback;
 import com.dluobida.bluecat.finance.core.bean.CatagroyBean;
 import com.dluobida.bluecat.finance.core.db.table.AccountData;
 import com.dluobida.bluecat.finance.core.db.table.IncomeData;
@@ -35,6 +36,7 @@ import com.dluobida.bluecat.finance.modules.income.presenter.CreateIncomePresent
 import com.dluobida.bluecat.finance.utils.AssetsUtils;
 import com.dluobida.bluecat.finance.utils.DateUtils;
 import com.dluobida.bluecat.finance.utils.LogUtils;
+import com.dluobida.bluecat.finance.utils.PickerViewUtils;
 import com.dluobida.bluecat.finance.utils.ToastUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -97,46 +99,40 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
                 finish();
                 break;
             case R.id.tv_income_type:
-                chooseIncomeType();
+                PickerViewUtils.showChooseList(CreateIncomeActivity.this, "收入类型", getIncomeType(), new PickerViewCallback() {
+                    @Override
+                    public void onChoosed(String chooseName) {
+                        tvIncomeType.setText(chooseName);
+                    }
+                });
+
                 break;
             case R.id.tv_income_account:
-                chooseIncomeaccount();
+                PickerViewUtils.showChooseList(CreateIncomeActivity.this, "账户选择", getAccountList(), new PickerViewCallback() {
+                    @Override
+                    public void onChoosed(String chooseName) {
+                        tvIncomeAccount.setText(chooseName);
+                    }
+                });
                 break;
             case R.id.tv_income_time:
                 Log.i("dengjj", "click income time");
-                chooseIncomeTime();
+                PickerViewUtils.showTimeChoose(CreateIncomeActivity.this, new PickerViewCallback() {
+                    @Override
+                    public void onChoosed(String chooseName) {
+                        tvIncomeTime.setText(chooseName);
+                    }
+                });
                 break;
         }
 
     }
 
-    private void chooseIncomeaccount() {
-        List<String> options1Items = getAccountList();
-        OptionsPickerView pvOptions = new OptionsPickerBuilder(CreateIncomeActivity.this, new OnOptionsSelectListener() {
-            @Override
-            public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                //返回的分别是三个级别的选中位置
-                String tx = options1Items.get(options1);
-                tvIncomeAccount.setText(tx);
-            }
-        })
-                .setTitleText("账户选择")
-                .setContentTextSize(20)//设置滚轮文字大小
-                .setDividerColor(Color.LTGRAY)//设置分割线的颜色
-                .setSelectOptions(0, 1)//默认选中项
-                .setBgColor(Color.BLACK)
-                .setTitleBgColor(Color.DKGRAY)
-                .setTitleColor(Color.LTGRAY)
-                .setCancelColor(Color.YELLOW)
-                .setSubmitColor(Color.YELLOW)
-                .setTextColorCenter(Color.LTGRAY)
-                .isRestoreItem(true)//切换时是否还原，设置默认选中第一项。
-                .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
-                .setOutSideColor(0x00000000) //设置外部遮罩颜色
-                .build();
-        pvOptions.setPicker(options1Items);
-        pvOptions.show();
-
+    private List<String> getIncomeType(){
+        String incomeType = AssetsUtils.getJsonFromAsset(this,"incomeType.json");
+        Gson gson = new Gson();
+        List<String> datas = gson.fromJson(incomeType, new TypeToken<List<String>>(){}.getType());
+        return datas;
     }
 
     private List<String> getAccountList(){
@@ -163,58 +159,5 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
         incomeData.setDate(time);
         incomeData.setRemark(remark);
         return incomeData;
-    }
-
-    private void chooseIncomeType() {
-        List<CatagroyBean> catagroys = getCatagroy();
-        List<String> options1Items = new ArrayList<>();
-        List<List<String>> options2Items = new ArrayList<>();
-        for(int i=0;i<catagroys.size();i++){
-            options1Items.add(catagroys.get(i).getName());
-            options2Items.add(catagroys.get(i).getSecondType());
-        }
-        OptionsPickerView pvOptions = new OptionsPickerBuilder(CreateIncomeActivity.this, new OnOptionsSelectListener() {
-            @Override
-            public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                //返回的分别是三个级别的选中位置
-                String tx = options1Items.get(options1) + " > " + options2Items.get(options1).get(options2);
-                tvIncomeType.setText(tx);
-            }
-        })
-                .setTitleText("分类选择")
-                .setContentTextSize(20)//设置滚轮文字大小
-                .setDividerColor(Color.LTGRAY)//设置分割线的颜色
-                .setSelectOptions(0, 1)//默认选中项
-                .setBgColor(Color.BLACK)
-                .setTitleBgColor(Color.DKGRAY)
-                .setTitleColor(Color.LTGRAY)
-                .setCancelColor(Color.YELLOW)
-                .setSubmitColor(Color.YELLOW)
-                .setTextColorCenter(Color.LTGRAY)
-                .isRestoreItem(true)//切换时是否还原，设置默认选中第一项。
-                .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
-                .setOutSideColor(0x00000000) //设置外部遮罩颜色
-                .build();
-        pvOptions.setPicker(options1Items, options2Items);
-        pvOptions.show();
-    }
-
-    private void chooseIncomeTime() {
-        //时间选择器
-        TimePickerView pvTime = new TimePickerBuilder(CreateIncomeActivity.this, new OnTimeSelectListener() {
-            @Override
-            public void onTimeSelect(Date date, View v) {
-                tvIncomeTime.setText(DateUtils.timeToDate(date,DateUtils.YYYY_MM_DD));
-            }
-        }).setType(new boolean[]{true, true, true, true, true, false}).build();
-        pvTime.show();
-    }
-
-    private List<CatagroyBean> getCatagroy(){
-        String catagroy = AssetsUtils.getJsonFromAsset(this,"catagroy.json");
-        Gson gson = new Gson();
-        List<CatagroyBean> datas = gson.fromJson(catagroy, new TypeToken<List<CatagroyBean>>(){}.getType());
-        LogUtils.i("catagroy=" + datas.toString());
-        return datas;
     }
 }
