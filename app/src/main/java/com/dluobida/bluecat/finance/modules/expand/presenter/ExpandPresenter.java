@@ -14,6 +14,8 @@ import com.dluobida.bluecat.finance.base.presenter.BasePresenter;
 import com.dluobida.bluecat.finance.core.db.table.ExpandData;
 import com.dluobida.bluecat.finance.modules.expand.bean.ExpandListData;
 import com.dluobida.bluecat.finance.modules.expand.contract.ExpandContract;
+import com.dluobida.bluecat.finance.utils.DateUtils;
+import com.dluobida.bluecat.finance.utils.MathMoneyUtils;
 
 import java.util.List;
 
@@ -56,5 +58,15 @@ public class ExpandPresenter extends BasePresenter<ExpandContract.View> implemen
         isRefresh = false;
         currentPage++;
 //        getExpandListData(false);
+    }
+
+    @Override
+    public void getCurrentExpandMoney() {
+        List<ExpandData> datas = mDataManager.queryExpandDataByDate(DateUtils.getNowDate());
+        String totalMoney = "0";
+        for (ExpandData expandData : datas){
+            totalMoney = MathMoneyUtils.add(totalMoney,expandData.getMoney());
+        }
+        mView.showCurrentExpandMoney(totalMoney);
     }
 }

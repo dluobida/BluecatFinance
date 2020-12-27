@@ -88,7 +88,7 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
             tvIncomeType.setText(incomeData.getCatagroy());
             tvIncomeAccount.setText(incomeData.getAccount());
             etIncomeRemark.setText(incomeData.getRemark());
-            tvIncomeTime.setText(DateUtils.timeToDate(incomeData.getDate(),DateUtils.YYYY_MM_DD));
+            tvIncomeTime.setText(incomeData.getDate());
             id = incomeData.getId();
         }
 
@@ -172,12 +172,10 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
         String account = tvIncomeAccount.getText().toString();
         String remark = etIncomeRemark.getText().toString().trim();
         String date = tvIncomeTime.getText().toString();
-        //将date转换为时间戳
-        String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD);
         incomeData.setMoney(incomeMoney);
         incomeData.setCatagroy(catagroy);
         incomeData.setAccount(account);
-        incomeData.setDate(time);
+        incomeData.setDate(date);
         incomeData.setRemark(remark);
         incomeData.setId(id);
         return incomeData;

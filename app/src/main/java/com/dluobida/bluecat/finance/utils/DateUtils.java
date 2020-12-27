@@ -22,18 +22,18 @@ public class DateUtils {
      * @param pattern
      * @return
      */
-    public static String dateToTime(String dateStr,String pattern){
-        String timeStr;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        try {
-            Date date = simpleDateFormat.parse(dateStr);
-            long time = date.getTime();
-            return String.valueOf(time);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
+//    public static String dateToTime(String dateStr,String pattern){
+//        String timeStr;
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+//        try {
+//            Date date = simpleDateFormat.parse(dateStr);
+//            long time = date.getTime();
+//            return String.valueOf(time);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        return "";
+//    }
 
     /**
      * 时间戳转换为标准日期
@@ -57,5 +57,10 @@ public class DateUtils {
         long lt = new Long(dateStr);
         Date date = new Date(lt);
         return timeToDate(date,pattern);
+    }
+
+    public static String getNowDate(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(YYYY_MM_DD);
+        return simpleDateFormat.format(new Date());
     }
 }

@@ -146,12 +146,10 @@ public class CreateTransferActivity extends BaseActivity<CreateTransferPresenter
         String accountOut = tvAccountOut.getText().toString();
         String remark = etTransferRemark.getText().toString().trim();
         String date = tvTransferTime.getText().toString();
-        //将date转换为时间戳
-        String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD);
         transferData.setMoney(transferMoney);
         transferData.setAccountIn(accountIn);
         transferData.setAccountOut(accountOut);
-        transferData.setDate(time);
+        transferData.setDate(date);
         transferData.setRemark(remark);
         return transferData;
     }

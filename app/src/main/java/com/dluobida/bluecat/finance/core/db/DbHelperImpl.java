@@ -59,6 +59,12 @@ public class DbHelperImpl implements DbHelper {
     }
 
     @Override
+    public List<ExpandData> queryExpandDataByDate(String date) {
+        List<ExpandData> expandDatas = daoSession.getExpandDataDao().queryRaw("where date=?", date);
+        return expandDatas;
+    }
+
+    @Override
     public void deleteExpandData(Long id) {
         daoSession.getExpandDataDao().deleteByKey(id);
     }

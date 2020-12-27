@@ -10,12 +10,16 @@
 
 package com.dluobida.bluecat.finance.modules.expand.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -49,7 +53,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> implements CreateExpandContract.View {
+public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> implements CreateExpandContract.View, TextView.OnEditorActionListener {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.toolbar_title)
@@ -88,9 +92,13 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
             tvExpandType.setText(expandData.getCatagroy());
             tvExpandAccount.setText(expandData.getAccount());
             etExpandRemark.setText(expandData.getRemark());
-            tvExpandTime.setText(DateUtils.timeToDate(expandData.getDate(),DateUtils.YYYY_MM_DD));
+            tvExpandTime.setText(expandData.getDate());
             id = expandData.getId();
+        }else {
+            //TODO 初始化默认值
+
         }
+        etExpandMoney.setOnEditorActionListener(this);
 
     }
 
@@ -172,14 +180,27 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         String account = tvExpandAccount.getText().toString();
         String remark = etExpandRemark.getText().toString().trim();
         String date = tvExpandTime.getText().toString();
-        //
-        String time = DateUtils.dateToTime(date,DateUtils.YYYY_MM_DD);
         expandData.setMoney(expandMoney);
         expandData.setCatagroy(catagroy);
         expandData.setAccount(account);
-        expandData.setDate(time);
+        expandData.setDate(date);
         expandData.setRemark(remark);
         expandData.setId(id);
         return expandData;
+    }
+
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        switch (actionId){
+            case EditorInfo.IME_ACTION_NEXT:
+                PickerViewUtils.showChooseList(CreateExpandActivity.this, "支出类型", getExpandList(), new PickerViewCallback() {
+                    @Override
+                    public void onChoosed(String chooseName) {
+                        tvExpandType.setText(chooseName);
+                    }
+                });
+                break;
+        }
+        return true;
     }
 }

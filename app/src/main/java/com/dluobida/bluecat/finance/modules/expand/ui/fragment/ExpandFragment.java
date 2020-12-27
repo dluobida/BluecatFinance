@@ -13,8 +13,10 @@ package com.dluobida.bluecat.finance.modules.expand.ui.fragment;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dluobida.bluecat.finance.R;
@@ -43,6 +45,7 @@ public class ExpandFragment extends BaseFragment<ExpandPresenter> implements Exp
     RecyclerView rvExpandList;
 
     private QuickExpandListAdapter mAdapter;
+    private TextView tvTotalMoney;
 
 
 
@@ -56,6 +59,7 @@ public class ExpandFragment extends BaseFragment<ExpandPresenter> implements Exp
     public void onResume() {
         super.onResume();
         mPresenter.refreshLayout(false);
+        mPresenter.getCurrentExpandMoney();
 
     }
 
@@ -78,10 +82,10 @@ public class ExpandFragment extends BaseFragment<ExpandPresenter> implements Exp
         rvExpandList.setLayoutManager(layoutManager);
         rvExpandList.setHasFixedSize(true);
         //add head banner
-//        LinearLayout mHeaderGroup = (LinearLayout) getLayoutInflater().inflate(R.layout.query_menu,null);
-//        mAdapter.setHeaderView(mHeaderGroup);
+        LinearLayout mHeaderGroup = (LinearLayout) getLayoutInflater().inflate(R.layout.item_header_expand,null);
+        tvTotalMoney = mHeaderGroup.findViewById(R.id.tv_total_expand);
+        mAdapter.setHeaderView(mHeaderGroup);
         rvExpandList.setAdapter(mAdapter);
-
     }
 
     private void jumpToEdit(ExpandData expandData){
@@ -131,6 +135,11 @@ public class ExpandFragment extends BaseFragment<ExpandPresenter> implements Exp
         } else {
             mAdapter.addData(expandListData.getDatas());
         }
+    }
+
+    @Override
+    public void showCurrentExpandMoney(String money) {
+        tvTotalMoney.setText("当日总支出:    ￥" + money);
     }
 
     public void jumpToTheTop() {

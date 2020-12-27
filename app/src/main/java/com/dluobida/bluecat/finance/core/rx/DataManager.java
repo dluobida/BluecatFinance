@@ -38,6 +38,11 @@ public class DataManager implements DbHelper {
     }
 
     @Override
+    public List<ExpandData> queryExpandDataByDate(String date) {
+        return mDbHelper.queryExpandDataByDate(date);
+    }
+
+    @Override
     public void deleteExpandData(Long id) {
         mDbHelper.deleteExpandData(id);
     }

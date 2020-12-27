@@ -20,6 +20,7 @@ import java.util.List;
 public interface ExpandContract {
     interface View extends IView{
        void showExpandListData(ExpandListData expandListData,boolean isRefresh);
+       void showCurrentExpandMoney(String money);
 
     }
 
@@ -28,6 +29,7 @@ public interface ExpandContract {
         void getExpandListData(boolean isShowStatusView);
         void refreshLayout(boolean isShowStatusView);
         void loadMore();
+        void getCurrentExpandMoney();
 
     }
 

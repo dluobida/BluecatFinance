@@ -31,6 +31,11 @@ public interface DbHelper {
      * @return
      */
     List<ExpandData> queryAllExpandData();
+    /**
+     * 查询所有的支出数据
+     * @return
+     */
+    List<ExpandData> queryExpandDataByDate(String date);
 
     /**
      * 删除支出数据

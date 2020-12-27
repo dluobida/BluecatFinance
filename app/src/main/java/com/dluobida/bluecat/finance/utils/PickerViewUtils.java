@@ -10,9 +10,11 @@
 
 package com.dluobida.bluecat.finance.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
@@ -28,6 +30,7 @@ import java.util.List;
 
 public class PickerViewUtils {
     public static void showChooseList(Context context, String title, List<String> options1Items, PickerViewCallback callback){
+        hideInputMethod(context);
         OptionsPickerView pvOptions = new OptionsPickerBuilder(context, new OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -56,6 +59,7 @@ public class PickerViewUtils {
     }
 
     public static void showTimeChoose(Context context,PickerViewCallback callback){
+        hideInputMethod(context);
         TimePickerView pvTime = new TimePickerBuilder(context, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
@@ -64,4 +68,14 @@ public class PickerViewUtils {
         }).setType(new boolean[]{true, true, true, false, false, false}).build();
         pvTime.show();
     }
+
+    public static void hideInputMethod(Context context){
+        Activity activity = (Activity) context;
+        View view = activity.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
 }
