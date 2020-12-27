@@ -50,7 +50,7 @@ public class DbHelperImpl implements DbHelper {
 
     @Override
     public void saveExpandData(ExpandData expandData) {
-        daoSession.getExpandDataDao().insert(expandData);
+        daoSession.getExpandDataDao().save(expandData);
     }
 
     @Override
@@ -59,8 +59,13 @@ public class DbHelperImpl implements DbHelper {
     }
 
     @Override
+    public void deleteExpandData(Long id) {
+        daoSession.getExpandDataDao().deleteByKey(id);
+    }
+
+    @Override
     public void saveIncomeData(IncomeData incomeData) {
-        daoSession.getIncomeDataDao().insert(incomeData);
+        daoSession.getIncomeDataDao().save(incomeData);
     }
 
     @Override
@@ -69,8 +74,13 @@ public class DbHelperImpl implements DbHelper {
     }
 
     @Override
+    public void deleteIncomeData(Long id) {
+        daoSession.getIncomeDataDao().deleteByKey(id);
+    }
+
+    @Override
     public void saveTransferData(TransferData transferData) {
-        daoSession.getTransferDataDao().insert(transferData);
+        daoSession.getTransferDataDao().save(transferData);
     }
 
     @Override
@@ -80,7 +90,7 @@ public class DbHelperImpl implements DbHelper {
 
     @Override
     public void saveAccountData(AccountData accountData) {
-        daoSession.getAccountDataDao().insert(accountData);
+        daoSession.getAccountDataDao().save(accountData);
     }
 
     @Override
@@ -103,6 +113,33 @@ public class DbHelperImpl implements DbHelper {
         LogUtils.i("updateMoney=" + updateMoney);
         updateAccountData.setMoney(updateMoney);
         daoSession.getAccountDataDao().update(updateAccountData);
+
+    }
+
+    @Override
+    public void updataAllAccountByJava() {
+        List<AccountData> allAccount = daoSession.getAccountDataDao().loadAll();
+        for(AccountData account : allAccount){
+            String accountName = account.getName();
+            //获取该账号所有的支出
+            List<ExpandData> expandDatas = daoSession.getExpandDataDao().queryRaw("where account=?", accountName);
+            //计算总和
+            String allExpand="0";
+            for(ExpandData expand : expandDatas){
+                allExpand = MathMoneyUtils.add(allExpand,expand.getMoney());
+            }
+            //获取该账号所有的收入
+            List<IncomeData> incomeDatas = daoSession.getIncomeDataDao().queryRaw("where account=?", accountName);
+            //计算总和
+            String allIncome="0";
+            for(IncomeData income : incomeDatas){
+                allIncome = MathMoneyUtils.add(allIncome,income.getMoney());
+            }
+            String newAccount = MathMoneyUtils.add(account.getOriginMoney(),allIncome);
+            newAccount = MathMoneyUtils.sub(newAccount,allExpand);
+            account.setMoney(newAccount);
+            daoSession.getAccountDataDao().update(account);
+        }
 
     }
 

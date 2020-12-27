@@ -10,6 +10,7 @@
 
 package com.dluobida.bluecat.finance.modules.income.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
@@ -55,6 +56,8 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
     TextView mTitle;
     @BindView(R.id.btn_income_save)
     Button btnSave;
+    @BindView(R.id.btn_income_delete)
+    Button btnDelete;
     @BindView(R.id.et_income_money)
     EditText etIncomeMoney;
     @BindView(R.id.tv_income_type)
@@ -66,6 +69,9 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
     @BindView(R.id.et_income_remark)
     EditText etIncomeRemark;
 
+    private String type;
+    private Long id;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_create_income;
@@ -73,6 +79,18 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
 
     @Override
     protected void initView() {
+        Intent intent = getIntent();
+        type = intent.getStringExtra("type");
+        if("edit".equals(type)){
+            String data = intent.getStringExtra("data");
+            IncomeData incomeData = new Gson().fromJson(data,IncomeData.class);
+            etIncomeMoney.setText(incomeData.getMoney());
+            tvIncomeType.setText(incomeData.getCatagroy());
+            tvIncomeAccount.setText(incomeData.getAccount());
+            etIncomeRemark.setText(incomeData.getRemark());
+            tvIncomeTime.setText(DateUtils.timeToDate(incomeData.getDate(),DateUtils.YYYY_MM_DD));
+            id = incomeData.getId();
+        }
 
     }
 
@@ -87,15 +105,18 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
 
     }
 
-    @OnClick({R.id.btn_income_save, R.id.tv_income_type, R.id.tv_income_time,R.id.tv_income_account})
+    @OnClick({R.id.btn_income_save,R.id.btn_income_delete, R.id.tv_income_type, R.id.tv_income_time,R.id.tv_income_account})
     public void OnViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_income_save:
                 ToastUtils.showToast(CreateIncomeActivity.this, "点击了保存");
                 IncomeData incomeData = getIncomeData();
                 mPresenter.saveIncomeData(incomeData);
-                List<IncomeData> datas = mPresenter.queryAllIncomeData();
-                Log.i("dengjj", "incomeData=" + datas.toString());
+                finish();
+                break;
+            case R.id.btn_income_delete:
+                ToastUtils.showToast(CreateIncomeActivity.this, "点击了删除");
+                mPresenter.deleteIncomeData(getIncomeData().getId());
                 finish();
                 break;
             case R.id.tv_income_type:
@@ -158,6 +179,7 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
         incomeData.setAccount(account);
         incomeData.setDate(time);
         incomeData.setRemark(remark);
+        incomeData.setId(id);
         return incomeData;
     }
 }

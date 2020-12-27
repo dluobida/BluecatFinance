@@ -35,13 +35,13 @@ public class CreateExpandPresenter extends BasePresenter<CreateExpandContract.Vi
         //1.在支出表中增加一行
         mDataManager.saveExpandData(expandData);
         //在账户表中更新相关的金额
-        mDataManager.updateAccountData(expandData.getAccount(),expandData.getMoney(), MathMoneyEnum.SUB);
+        mDataManager.updataAllAccountByJava();
 
     }
 
     @Override
-    public List<ExpandData> queryAllExpandData() {
-        return mDataManager.queryAllExpandData();
+    public void deleteExpandDataById(Long id) {
+        mDataManager.deleteExpandData(id);
     }
 
     @Override

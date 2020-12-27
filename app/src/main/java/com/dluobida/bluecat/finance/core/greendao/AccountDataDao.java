@@ -27,8 +27,9 @@ public class AccountDataDao extends AbstractDao<AccountData, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Name = new Property(1, String.class, "name", false, "NAME");
         public final static Property Money = new Property(2, String.class, "money", false, "MONEY");
-        public final static Property Remark = new Property(3, String.class, "remark", false, "REMARK");
-        public final static Property AccountType = new Property(4, String.class, "accountType", false, "ACCOUNT_TYPE");
+        public final static Property OriginMoney = new Property(3, String.class, "originMoney", false, "ORIGIN_MONEY");
+        public final static Property Remark = new Property(4, String.class, "remark", false, "REMARK");
+        public final static Property AccountType = new Property(5, String.class, "accountType", false, "ACCOUNT_TYPE");
     }
 
 
@@ -47,8 +48,9 @@ public class AccountDataDao extends AbstractDao<AccountData, Long> {
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"NAME\" TEXT," + // 1: name
                 "\"MONEY\" TEXT," + // 2: money
-                "\"REMARK\" TEXT," + // 3: remark
-                "\"ACCOUNT_TYPE\" TEXT);"); // 4: accountType
+                "\"ORIGIN_MONEY\" TEXT," + // 3: originMoney
+                "\"REMARK\" TEXT," + // 4: remark
+                "\"ACCOUNT_TYPE\" TEXT);"); // 5: accountType
     }
 
     /** Drops the underlying database table. */
@@ -76,14 +78,19 @@ public class AccountDataDao extends AbstractDao<AccountData, Long> {
             stmt.bindString(3, money);
         }
  
+        String originMoney = entity.getOriginMoney();
+        if (originMoney != null) {
+            stmt.bindString(4, originMoney);
+        }
+ 
         String remark = entity.getRemark();
         if (remark != null) {
-            stmt.bindString(4, remark);
+            stmt.bindString(5, remark);
         }
  
         String accountType = entity.getAccountType();
         if (accountType != null) {
-            stmt.bindString(5, accountType);
+            stmt.bindString(6, accountType);
         }
     }
 
@@ -106,14 +113,19 @@ public class AccountDataDao extends AbstractDao<AccountData, Long> {
             stmt.bindString(3, money);
         }
  
+        String originMoney = entity.getOriginMoney();
+        if (originMoney != null) {
+            stmt.bindString(4, originMoney);
+        }
+ 
         String remark = entity.getRemark();
         if (remark != null) {
-            stmt.bindString(4, remark);
+            stmt.bindString(5, remark);
         }
  
         String accountType = entity.getAccountType();
         if (accountType != null) {
-            stmt.bindString(5, accountType);
+            stmt.bindString(6, accountType);
         }
     }
 
@@ -128,8 +140,9 @@ public class AccountDataDao extends AbstractDao<AccountData, Long> {
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // name
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // money
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // remark
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // accountType
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // originMoney
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // remark
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // accountType
         );
         return entity;
     }
@@ -139,8 +152,9 @@ public class AccountDataDao extends AbstractDao<AccountData, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setMoney(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setRemark(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setAccountType(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setOriginMoney(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setRemark(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setAccountType(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
      }
     
     @Override

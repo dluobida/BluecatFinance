@@ -56,6 +56,8 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
     TextView mTitle;
     @BindView(R.id.btn_expand_save)
     Button btnSave;
+    @BindView(R.id.btn_expand_delete)
+    Button btnDelete;
     @BindView(R.id.et_expand_money)
     EditText etExpandMoney;
     @BindView(R.id.tv_expand_type)
@@ -67,6 +69,9 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
     @BindView(R.id.et_expand_remark)
     EditText etExpandRemark;
 
+    private String type;
+    private Long id;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_create_expand;
@@ -75,7 +80,7 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
     @Override
     protected void initView() {
         Intent intent = getIntent();
-        String type = intent.getStringExtra("type");
+        type = intent.getStringExtra("type");
         if("edit".equals(type)){
             String data = intent.getStringExtra("data");
             ExpandData expandData = new Gson().fromJson(data,ExpandData.class);
@@ -84,6 +89,7 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
             tvExpandAccount.setText(expandData.getAccount());
             etExpandRemark.setText(expandData.getRemark());
             tvExpandTime.setText(DateUtils.timeToDate(expandData.getDate(),DateUtils.YYYY_MM_DD));
+            id = expandData.getId();
         }
 
     }
@@ -99,15 +105,18 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
 
     }
 
-    @OnClick({R.id.btn_expand_save, R.id.tv_expand_type, R.id.tv_expand_time,R.id.tv_expand_account})
+    @OnClick({R.id.btn_expand_save, R.id.btn_expand_delete,R.id.tv_expand_type, R.id.tv_expand_time,R.id.tv_expand_account})
     public void OnViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_expand_save:
                 ToastUtils.showToast(CreateExpandActivity.this, "点击了保存");
                 ExpandData expandData = getExpandData();
                 mPresenter.saveExpandData(expandData);
-                List<ExpandData> datas = mPresenter.queryAllExpandData();
-                Log.i("dengjj", "expandData=" + datas.toString());
+                finish();
+                break;
+            case R.id.btn_expand_delete:
+                ToastUtils.showToast(CreateExpandActivity.this, "点击了删除");
+                mPresenter.deleteExpandDataById(getExpandData().getId());
                 finish();
                 break;
             case R.id.tv_expand_type:
@@ -170,6 +179,7 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         expandData.setAccount(account);
         expandData.setDate(time);
         expandData.setRemark(remark);
+        expandData.setId(id);
         return expandData;
     }
 }

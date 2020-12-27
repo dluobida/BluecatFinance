@@ -25,6 +25,8 @@ public interface CreateIncomeContract {
     interface Presenter extends IPresenter<View>{
         void saveIncomeData(IncomeData expandData);
 
+        void deleteIncomeData(Long id);
+
         List<IncomeData> queryAllIncomeData();
 
         List<AccountData> queryAllAccountData();

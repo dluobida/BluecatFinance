@@ -26,25 +26,29 @@ public class AccountData {
 
     private String money;
 
+    private String originMoney;
+
     private String remark;
 
     private String accountType;
+
+    @Generated(hash = 1536521423)
+    public AccountData(Long id, String name, String money, String originMoney,
+            String remark, String accountType) {
+        this.id = id;
+        this.name = name;
+        this.money = money;
+        this.originMoney = originMoney;
+        this.remark = remark;
+        this.accountType = accountType;
+    }
 
     @Generated(hash = 691197240)
     public AccountData() {
     }
 
-    @Generated(hash = 1971970793)
-    public AccountData(Long id, String name, String money, String remark, String accountType) {
-        this.id = id;
-        this.name = name;
-        this.money = money;
-        this.remark = remark;
-        this.accountType = accountType;
-    }
-
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -52,7 +56,7 @@ public class AccountData {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -60,15 +64,23 @@ public class AccountData {
     }
 
     public String getMoney() {
-        return money;
+        return this.money;
     }
 
     public void setMoney(String money) {
         this.money = money;
     }
 
+    public String getOriginMoney() {
+        return this.originMoney;
+    }
+
+    public void setOriginMoney(String originMoney) {
+        this.originMoney = originMoney;
+    }
+
     public String getRemark() {
-        return remark;
+        return this.remark;
     }
 
     public void setRemark(String remark) {
@@ -76,12 +88,13 @@ public class AccountData {
     }
 
     public String getAccountType() {
-        return accountType;
+        return this.accountType;
     }
 
     public void setAccountType(String accountType) {
         this.accountType = accountType;
     }
+
 
     @Override
     public String toString() {
@@ -89,6 +102,7 @@ public class AccountData {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", money='" + money + '\'' +
+                ", originMoney='" + originMoney + '\'' +
                 ", remark='" + remark + '\'' +
                 ", accountType='" + accountType + '\'' +
                 '}';

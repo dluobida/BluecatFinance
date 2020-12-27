@@ -31,6 +31,12 @@ public interface DbHelper {
      * @return
      */
     List<ExpandData> queryAllExpandData();
+
+    /**
+     * 删除支出数据
+     * @param id
+     */
+    void deleteExpandData(Long id);
     /**
      * 保存收入数据
      * @param incomeData
@@ -42,6 +48,11 @@ public interface DbHelper {
      * @return
      */
     List<IncomeData> queryAllIncomeData();
+    /**
+     * 删除收入数据
+     * @param id
+     */
+    void deleteIncomeData(Long id);
     /**
      * 保存转账数据
      * @param transferData
@@ -72,4 +83,10 @@ public interface DbHelper {
      * @param money
      */
     void updateAccountData(String accountName,String money, MathMoneyEnum type);
+
+    /**
+     * 通过代码更新所有账户的钱
+     * @return
+     */
+    void updataAllAccountByJava();
 }

@@ -38,6 +38,11 @@ public class DataManager implements DbHelper {
     }
 
     @Override
+    public void deleteExpandData(Long id) {
+        mDbHelper.deleteExpandData(id);
+    }
+
+    @Override
     public void saveIncomeData(IncomeData incomeData) {
         mDbHelper.saveIncomeData(incomeData);
     }
@@ -45,6 +50,11 @@ public class DataManager implements DbHelper {
     @Override
     public List<IncomeData> queryAllIncomeData() {
         return mDbHelper.queryAllIncomeData();
+    }
+
+    @Override
+    public void deleteIncomeData(Long id) {
+        mDbHelper.deleteIncomeData(id);
     }
 
     @Override
@@ -70,5 +80,10 @@ public class DataManager implements DbHelper {
     @Override
     public void updateAccountData(String accountName, String money, MathMoneyEnum type) {
         mDbHelper.updateAccountData(accountName,money,type);
+    }
+
+    @Override
+    public void updataAllAccountByJava() {
+        mDbHelper.updataAllAccountByJava();
     }
 }

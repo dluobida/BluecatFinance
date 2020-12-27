@@ -74,6 +74,7 @@ public class AccountDetailActivity extends BaseActivity<AccountDetailPresenter> 
         accountData.setAccountType(accountType);
         accountData.setName(name);
         accountData.setMoney(money);
+        accountData.setOriginMoney(money);
         accountData.setRemark(remark);
         mPresenter.saveAccountData(accountData);
         LogUtils.i("accountDataList=" + mPresenter.queryAllAccountData().toString());

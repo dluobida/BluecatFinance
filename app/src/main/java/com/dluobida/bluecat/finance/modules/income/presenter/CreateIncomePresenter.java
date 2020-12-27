@@ -33,8 +33,15 @@ public class CreateIncomePresenter extends BasePresenter<CreateIncomeContract.Vi
         //1.在收入表中增加一行
         mDataManager.saveIncomeData(imcomeData);
         //在账户表中更新相关的金额
-        mDataManager.updateAccountData(imcomeData.getAccount(),imcomeData.getMoney(), MathMoneyEnum.ADD);
+        mDataManager.updataAllAccountByJava();
 
+
+
+    }
+
+    @Override
+    public void deleteIncomeData(Long id) {
+        mDataManager.deleteIncomeData(id);
     }
 
     @Override

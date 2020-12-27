@@ -25,7 +25,7 @@ public interface CreateExpandContract {
     interface Presenter extends IPresenter<View>{
         void saveExpandData(ExpandData expandData);
 
-        List<ExpandData> queryAllExpandData();
+        void deleteExpandDataById(Long id);
 
         List<AccountData> queryAllAccountData();
 

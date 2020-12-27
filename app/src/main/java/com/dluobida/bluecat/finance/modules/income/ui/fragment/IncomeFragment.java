@@ -10,18 +10,23 @@
 
 package com.dluobida.bluecat.finance.modules.income.ui.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.fragment.BaseFragment;
 import com.dluobida.bluecat.finance.core.db.table.IncomeData;
 import com.dluobida.bluecat.finance.modules.income.adapter.QuickIncomeListAdapter;
 import com.dluobida.bluecat.finance.modules.income.bean.IncomeListData;
+import com.dluobida.bluecat.finance.modules.income.ui.activity.CreateIncomeActivity;
 import com.dluobida.bluecat.finance.modules.income.ui.fragment.IncomeFragment;
 import com.dluobida.bluecat.finance.modules.income.contract.IncomeContract;
 import com.dluobida.bluecat.finance.modules.income.presenter.IncomePresenter;
 import com.dluobida.bluecat.finance.utils.LogUtils;
+import com.google.gson.Gson;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.ArrayList;
@@ -63,6 +68,13 @@ public class IncomeFragment extends BaseFragment<IncomePresenter> implements  In
     private void initRecyclerView(){
         List<IncomeData> incomeDataList = new ArrayList<>();
         mAdapter = new QuickIncomeListAdapter(R.layout.item_income_list,incomeDataList);
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                jumpToEdit(incomeDataList.get(position));
+            }
+        });
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(_mActivity);
         rvIncomeList.setLayoutManager(layoutManager);
         rvIncomeList.setHasFixedSize(true);
@@ -70,6 +82,15 @@ public class IncomeFragment extends BaseFragment<IncomePresenter> implements  In
 //        LinearLayout mHeaderGroup = (LinearLayout) getLayoutInflater().inflate(R.layout.query_menu,null);
 //        mAdapter.setHeaderView(mHeaderGroup);
         rvIncomeList.setAdapter(mAdapter);
+
+    }
+
+    private void jumpToEdit(IncomeData incomeData){
+        //TODO 实体类转json
+        Intent intent = new Intent(getActivity(), CreateIncomeActivity.class);
+        intent.putExtra("type","edit");
+        intent.putExtra("data",new Gson().toJson(incomeData));
+        startActivity(intent);
 
     }
 
