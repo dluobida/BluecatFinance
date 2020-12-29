@@ -19,6 +19,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -89,6 +90,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     protected void initView() {
+        initDrawerLayout();
         showFragment(mCurrentFgIndex);
         initBottomNavigationView();
 
@@ -108,6 +110,13 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             mTitle.setText("支出");
         }
 
+    }
+
+    private void initDrawerLayout() {
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        toggle.syncState();
+        mDrawerLayout.addDrawerListener(toggle);
     }
 
     private void showFragment(int index) {

@@ -19,6 +19,8 @@
     <string name="nav_day_mode">Day mode</string>
     <string name="setting">Setting</string>
     <string name="about_us">About Us</string>
+    <string name="navigation_drawer_open">Open drawer</string>
+    <string name="navigation_drawer_close">Close drawer</string>
 
     <!-- home pager -->
     <string name="tab_expand">支出</string>

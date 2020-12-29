@@ -96,6 +96,9 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
             id = expandData.getId();
         }else {
             //TODO 初始化默认值
+            tvExpandType.setText(getExpandList().get(0));
+            tvExpandAccount.setText(getAccountList().get(0));
+            tvExpandTime.setText(DateUtils.getNowDate());
 
         }
         etExpandMoney.setOnEditorActionListener(this);
@@ -107,10 +110,11 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
             mTitle.setText("创建支出");
         }
-
+        mToolbar.setNavigationOnClickListener(v -> onBackPressedSupport());
     }
 
     @OnClick({R.id.btn_expand_save, R.id.btn_expand_delete,R.id.tv_expand_type, R.id.tv_expand_time,R.id.tv_expand_account})
