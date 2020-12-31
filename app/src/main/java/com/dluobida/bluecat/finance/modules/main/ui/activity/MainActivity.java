@@ -31,6 +31,7 @@ import android.widget.Toast;
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.activity.BaseActivity;
 import com.dluobida.bluecat.finance.core.constant.Constants;
+import com.dluobida.bluecat.finance.modules.assets.ui.activity.AccountDetailActivity;
 import com.dluobida.bluecat.finance.modules.assets.ui.activity.CreateAccountActivity;
 import com.dluobida.bluecat.finance.modules.assets.ui.fragment.AssetsFragment;
 import com.dluobida.bluecat.finance.modules.chart.ui.fragment.ChartFragment;
@@ -255,7 +256,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 startActivity(createTransferIntent);
                 break;
             case Constants.TYPE_ASSETS:
-                Intent createAccountIntent = new Intent(MainActivity.this, CreateAccountActivity.class);
+                Intent createAccountIntent = new Intent(MainActivity.this, AccountDetailActivity.class);
                 startActivity(createAccountIntent);
                 break;
             case Constants.TYPE_CHART:

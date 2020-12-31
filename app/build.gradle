@@ -68,6 +68,7 @@ dependencies {
     implementation rootProject.ext.dependencies["xlog"]
     implementation rootProject.ext.dependencies["gson"]
     implementation rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
+    implementation group: 'net.sourceforge.jexcelapi', name: 'jxl', version: '2.6.12'
 
     //dao
     implementation rootProject.ext.dependencies["greendao"]

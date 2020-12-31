@@ -13,16 +13,26 @@ package com.dluobida.bluecat.finance.modules.assets.ui.activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.activity.BaseActivity;
+import com.dluobida.bluecat.finance.base.callback.PickerViewCallback;
 import com.dluobida.bluecat.finance.core.db.table.AccountData;
+import com.dluobida.bluecat.finance.modules.assets.bean.AccountTypeBean;
 import com.dluobida.bluecat.finance.modules.assets.contract.AccountDetailContract;
 import com.dluobida.bluecat.finance.modules.assets.presenter.AccountDetailPresenter;
 import com.dluobida.bluecat.finance.modules.main.ui.activity.MainActivity;
+import com.dluobida.bluecat.finance.utils.AssetsUtils;
 import com.dluobida.bluecat.finance.utils.LogUtils;
+import com.dluobida.bluecat.finance.utils.PickerViewUtils;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -38,8 +48,9 @@ public class AccountDetailActivity extends BaseActivity<AccountDetailPresenter> 
     EditText etAccountMoney;
     @BindView(R.id.et_account_remark)
     EditText etAccountRemark;
+    @BindView(R.id.tv_account_type)
+    TextView tvAccountType;
 
-    private String accountType;
 
     @Override
     protected int getLayoutId() {
@@ -48,8 +59,6 @@ public class AccountDetailActivity extends BaseActivity<AccountDetailPresenter> 
 
     @Override
     protected void initView() {
-        accountType = getIntent().getStringExtra("accountType");
-        LogUtils.i("accountType=" + accountType);
 
 
     }
@@ -65,20 +74,45 @@ public class AccountDetailActivity extends BaseActivity<AccountDetailPresenter> 
 
     }
 
-    @OnClick(R.id.btn_account_create)
-    public void onClick(){
-        String name = etAccountName.getText().toString().trim();
-        String money = etAccountMoney.getText().toString().trim();
-        String remark = etAccountRemark.getText().toString().trim();
-        AccountData accountData = new AccountData();
-        accountData.setAccountType(accountType);
-        accountData.setName(name);
-        accountData.setMoney(money);
-        accountData.setOriginMoney(money);
-        accountData.setRemark(remark);
-        mPresenter.saveAccountData(accountData);
-        LogUtils.i("accountDataList=" + mPresenter.queryAllAccountData().toString());
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+    @OnClick({R.id.btn_account_create,R.id.tv_account_type})
+    public void OnViewClicked(View view){
+        switch (view.getId()) {
+            case R.id.btn_account_create:
+                String name = etAccountName.getText().toString().trim();
+                String money = etAccountMoney.getText().toString().trim();
+                String remark = etAccountRemark.getText().toString().trim();
+                String accountType = tvAccountType.getText().toString().trim();
+                AccountData accountData = new AccountData();
+                accountData.setAccountType(accountType);
+                accountData.setName(name);
+                accountData.setMoney(money);
+                accountData.setOriginMoney(money);
+                accountData.setRemark(remark);
+                mPresenter.saveAccountData(accountData);
+                LogUtils.i("accountDataList=" + mPresenter.queryAllAccountData().toString());
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tv_account_type:
+                PickerViewUtils.showChooseList(AccountDetailActivity.this, "账号类型", getAccountTypes(), new PickerViewCallback() {
+                    @Override
+                    public void onChoosed(String chooseName) {
+                        tvAccountType.setText(chooseName);
+                    }
+                });
+                break;
+        }
+
+    }
+
+    private List<String> getAccountTypes(){
+        List<String> types = new ArrayList<>();
+        String accountType = AssetsUtils.getJsonFromAsset(this,"accountType.json");
+        Gson gson = new Gson();
+        List<AccountTypeBean> datas = gson.fromJson(accountType, new TypeToken<List<AccountTypeBean>>(){}.getType());
+        for(AccountTypeBean bean : datas){
+            types.add(bean.getName());
+        }
+        return types;
     }
 }

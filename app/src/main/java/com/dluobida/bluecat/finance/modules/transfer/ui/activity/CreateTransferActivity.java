@@ -73,6 +73,9 @@ public class CreateTransferActivity extends BaseActivity<CreateTransferPresenter
 
     @Override
     protected void initView() {
+        tvAccountIn.setText(getAccountList().get(0));
+        tvAccountOut.setText(getAccountList().get(1));
+        tvTransferTime.setText(DateUtils.getNowDate());
 
     }
 
@@ -81,9 +84,11 @@ public class CreateTransferActivity extends BaseActivity<CreateTransferPresenter
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
             mTitle.setText("创建转账");
         }
+        mToolbar.setNavigationOnClickListener(v -> onBackPressedSupport());
 
     }
 

@@ -90,6 +90,11 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
             etIncomeRemark.setText(incomeData.getRemark());
             tvIncomeTime.setText(incomeData.getDate());
             id = incomeData.getId();
+        }else{
+            //TODO 初始化默认值
+            tvIncomeType.setText(getIncomeType().get(0));
+            tvIncomeAccount.setText(getAccountList().get(0));
+            tvIncomeTime.setText(DateUtils.getNowDate());
         }
 
     }
@@ -99,9 +104,11 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
             mTitle.setText("创建收入");
         }
+        mToolbar.setNavigationOnClickListener(v -> onBackPressedSupport());
 
     }
 

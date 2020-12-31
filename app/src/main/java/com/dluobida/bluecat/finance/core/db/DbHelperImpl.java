@@ -25,6 +25,9 @@ import com.dluobida.bluecat.finance.utils.LogUtils;
 import com.dluobida.bluecat.finance.utils.MathMoneyUtils;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -55,7 +58,15 @@ public class DbHelperImpl implements DbHelper {
 
     @Override
     public List<ExpandData> queryAllExpandData() {
-        return daoSession.getExpandDataDao().loadAll();
+        List<ExpandData> expandDatas = daoSession.getExpandDataDao().loadAll();
+        Collections.sort(expandDatas, new Comparator<ExpandData>() {
+            @Override
+            public int compare(ExpandData o1, ExpandData o2) {
+                return o2.getDate().compareTo(o1.getDate());
+            }
+        });
+
+        return expandDatas;
     }
 
     @Override
@@ -76,6 +87,14 @@ public class DbHelperImpl implements DbHelper {
 
     @Override
     public List<IncomeData> queryAllIncomeData() {
+
+        List<IncomeData> expandDatas = daoSession.getIncomeDataDao().loadAll();
+        Collections.sort(expandDatas, new Comparator<IncomeData>() {
+            @Override
+            public int compare(IncomeData o1, IncomeData o2) {
+                return o2.getDate().compareTo(o1.getDate());
+            }
+        });
         return daoSession.getIncomeDataDao().loadAll();
     }
 
