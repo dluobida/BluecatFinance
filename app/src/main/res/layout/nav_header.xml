@@ -30,14 +30,14 @@
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_author_round" />
+        android:src="@drawable/dluobida" />
 
     <TextView
         android:id="@+id/nav_header_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/login_in"
+        android:text="D洛必达"
         android:textSize="20sp"
         android:textColor="@color/nav_header_tv" />
 

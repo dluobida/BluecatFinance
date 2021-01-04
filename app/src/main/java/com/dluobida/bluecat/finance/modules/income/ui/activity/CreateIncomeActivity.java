@@ -92,8 +92,8 @@ public class CreateIncomeActivity extends BaseActivity<CreateIncomePresenter> im
             id = incomeData.getId();
         }else{
             //TODO 初始化默认值
-            tvIncomeType.setText(getIncomeType().get(0));
-            tvIncomeAccount.setText(getAccountList().get(0));
+            tvIncomeType.setText(getIncomeType().size() > 0 ?getIncomeType().get(0): "");
+            tvIncomeAccount.setText(getAccountList().size() > 0 ? getAccountList().get(0):"");
             tvIncomeTime.setText(DateUtils.getNowDate());
         }
 

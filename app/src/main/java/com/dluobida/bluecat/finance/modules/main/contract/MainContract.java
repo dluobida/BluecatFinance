@@ -19,6 +19,6 @@ public interface MainContract {
     }
 
     interface Presenter extends IPresenter<View> {
-
+       void backSync();
     }
 }

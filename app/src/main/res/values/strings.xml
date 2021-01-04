@@ -14,6 +14,8 @@
     <!-- navigation -->
     <string name="login_in">Login</string>
     <string name="my_collect">Collect</string>
+    <string name="check_update">检查更新</string>
+    <string name="back_sync">同步备份</string>
     <string name="nav_todo">TODO</string>
     <string name="nav_night_mode">Night mode</string>
     <string name="nav_day_mode">Day mode</string>

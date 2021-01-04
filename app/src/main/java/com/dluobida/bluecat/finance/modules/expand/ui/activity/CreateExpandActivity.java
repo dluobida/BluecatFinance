@@ -96,12 +96,12 @@ public class CreateExpandActivity extends BaseActivity<CreateExpandPresenter> im
             id = expandData.getId();
         }else {
             //TODO 初始化默认值
-            tvExpandType.setText(getExpandList().get(0));
-            tvExpandAccount.setText(getAccountList().get(0));
+            tvExpandType.setText(getExpandList().size() > 0 ?getExpandList().get(0):"");
+            tvExpandAccount.setText(getAccountList().size() > 0 ?getAccountList().get(0):"");
             tvExpandTime.setText(DateUtils.getNowDate());
 
         }
-        etExpandMoney.setOnEditorActionListener(this);
+//        etExpandMoney.setOnEditorActionListener(this);
 
     }
 

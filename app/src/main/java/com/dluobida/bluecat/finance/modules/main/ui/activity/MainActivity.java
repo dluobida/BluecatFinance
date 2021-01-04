@@ -11,28 +11,35 @@
 package com.dluobida.bluecat.finance.modules.main.ui.activity;
 
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dluobida.bluecat.finance.R;
 import com.dluobida.bluecat.finance.base.activity.BaseActivity;
 import com.dluobida.bluecat.finance.core.constant.Constants;
 import com.dluobida.bluecat.finance.modules.assets.ui.activity.AccountDetailActivity;
-import com.dluobida.bluecat.finance.modules.assets.ui.activity.CreateAccountActivity;
 import com.dluobida.bluecat.finance.modules.assets.ui.fragment.AssetsFragment;
 import com.dluobida.bluecat.finance.modules.chart.ui.fragment.ChartFragment;
 import com.dluobida.bluecat.finance.modules.expand.ui.activity.CreateExpandActivity;
@@ -43,8 +50,7 @@ import com.dluobida.bluecat.finance.modules.main.contract.MainContract;
 import com.dluobida.bluecat.finance.modules.main.presenter.MainPresenter;
 import com.dluobida.bluecat.finance.modules.transfer.ui.activity.CreateTransferActivity;
 import com.dluobida.bluecat.finance.modules.transfer.ui.fragment.TransferFragment;
-
-import javax.inject.Inject;
+import com.dluobida.bluecat.finance.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -77,11 +83,50 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     private int mCurrentFgIndex = 0;
     private int mLastFgIndex = -1;
+    String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    private int REQUEST_PERMISSION_CODE = 1000;
+    private AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestPermission();
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == REQUEST_PERMISSION_CODE) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.i("onPermissionsResult:", "权限" + permissions[0] + "申请成功");
+                // permission was granted, yay! Do the
+                // contacts-related task you need to do.
+
+            } else {
+                Log.i("onPermissionsResult:", "用户拒绝了权限申请");
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("permission")
+                        .setMessage("点击允许才可以使用我们的app哦")
+                        .setPositiveButton("去允许", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                if (alertDialog != null && alertDialog.isShowing()) {
+                                    alertDialog.dismiss();
+                                }
+                                ActivityCompat.requestPermissions(MainActivity.this,
+                                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                            }
+                        });
+                alertDialog = builder.create();
+                alertDialog.setCanceledOnTouchOutside(false);
+                alertDialog.show();
+                // permission denied, boo! Disable the
+                // functionality that depends on this permission.
+            }
+        }
     }
 
     @Override
@@ -93,6 +138,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     protected void initView() {
         initDrawerLayout();
         showFragment(mCurrentFgIndex);
+        initNavigationView();
         initBottomNavigationView();
 
     }
@@ -118,6 +164,41 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         toggle.syncState();
         mDrawerLayout.addDrawerListener(toggle);
+    }
+
+    private void initNavigationView(){
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.nav_item_back_sync:
+                        ToastUtils.showToast(MainActivity.this,"同步备份中");
+                        mPresenter.backSync();
+                        break;
+                    case R.id.nav_item_check_update:
+                        ToastUtils.showToast(MainActivity.this,"检查更新中");
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    private void requestPermission() {
+        if (Build.VERSION.SDK_INT > 23) {
+            if (ContextCompat.checkSelfPermission(MainActivity.this,
+                    permissions[0])
+                    == PackageManager.PERMISSION_GRANTED) {
+                //授予权限
+                Log.i("requestPermission:", "用户之前已经授予了权限！");
+            } else {
+                //未获得权限
+                Log.i("requestPermission:", "未获得权限，现在申请！");
+                requestPermissions(permissions
+                        , REQUEST_PERMISSION_CODE);
+            }
+        }
+
     }
 
     private void showFragment(int index) {

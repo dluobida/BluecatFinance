@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ project ：JunjieFinance
   ~ author : dluobida
   ~ class : nav_menu.xml
@@ -13,27 +12,38 @@
 
     <group>
 
-        <item android:id="@+id/nav_item_my_collect"
-            android:icon="@drawable/icon_like"
-            android:title="@string/my_collect" />
+<!--        <item-->
+<!--            android:id="@+id/nav_item_my_collect"-->
+<!--            android:icon="@drawable/icon_like"-->
+<!--            android:title="@string/my_collect" />-->
 
+<!--        <item-->
+<!--            android:id="@+id/nav_item_todo"-->
+<!--            android:icon="@drawable/ic_todo_default"-->
+<!--            android:title="@string/nav_todo" />-->
+
+<!--        <item-->
+<!--            android:id="@+id/nav_item_night_mode"-->
+<!--            android:icon="@drawable/ic_night"-->
+<!--            android:title="@string/nav_night_mode" />-->
+
+<!--        <item-->
+<!--            android:id="@+id/nav_item_setting"-->
+<!--            android:icon="@drawable/ic_setting"-->
+<!--            android:title="@string/setting" />-->
+
+<!--        <item-->
+<!--            android:id="@+id/nav_item_about_us"-->
+<!--            android:icon="@drawable/ic_about"-->
+<!--            android:title="@string/about_us" />-->
         <item
-            android:id="@+id/nav_item_todo"
-            android:icon="@drawable/ic_todo_default"
-            android:title="@string/nav_todo" />
-
-        <item
-            android:id="@+id/nav_item_night_mode"
-            android:icon="@drawable/ic_night"
-            android:title="@string/nav_night_mode" />
-
-        <item android:id="@+id/nav_item_setting"
-            android:icon="@drawable/ic_setting"
-            android:title="@string/setting" />
-
-        <item android:id="@+id/nav_item_about_us"
+            android:id="@+id/nav_item_back_sync"
             android:icon="@drawable/ic_about"
-            android:title="@string/about_us" />
+            android:title="@string/back_sync" />
+        <item
+            android:id="@+id/nav_item_check_update"
+            android:icon="@drawable/ic_about"
+            android:title="@string/check_update" />
 
 
     </group>

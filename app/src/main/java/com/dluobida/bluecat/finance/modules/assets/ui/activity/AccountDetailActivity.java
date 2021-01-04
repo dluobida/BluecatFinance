@@ -68,9 +68,11 @@ public class AccountDetailActivity extends BaseActivity<AccountDetailPresenter> 
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
             mTitle.setText("创建账户");
         }
+        mToolbar.setNavigationOnClickListener(v -> onBackPressedSupport());
 
     }
 

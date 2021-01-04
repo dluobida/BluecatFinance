@@ -73,8 +73,8 @@ public class CreateTransferActivity extends BaseActivity<CreateTransferPresenter
 
     @Override
     protected void initView() {
-        tvAccountIn.setText(getAccountList().get(0));
-        tvAccountOut.setText(getAccountList().get(1));
+//        tvAccountIn.setText(getAccountList().get(0));
+//        tvAccountOut.setText(getAccountList().get(1));
         tvTransferTime.setText(DateUtils.getNowDate());
 
     }
